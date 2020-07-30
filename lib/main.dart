@@ -15,6 +15,9 @@ class BooksApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (BuildContext context) => Books(),
       child: MaterialApp(
+        theme: ThemeData(
+            bottomSheetTheme: BottomSheetThemeData(
+                backgroundColor: Colors.black.withOpacity(0))),
         debugShowCheckedModeBanner: false,
         title: 'BookHouse',
         home: HomeScreen(),

@@ -1,3 +1,4 @@
+import 'package:books_app/screens/book_detail_bottom_sheet.dart';
 import 'package:flutter/material.dart';
 
 //-----SearchScreen-------//
@@ -28,3 +29,8 @@ const kSearchBarDecoration = InputDecoration(
     ),
     enabledBorder: InputBorder.none,
     focusedBorder: InputBorder.none);
+
+//----------BookDetailBottomSheet--------///
+const kBookImageHeight = 150.0;
+
+final kBarrierColor = Colors.black.withOpacity(0.8);

@@ -11,6 +11,7 @@ class Books extends ChangeNotifier {
   }
 
   Future<void> getSearchedBookData(String bookName) async {
+    clearPreviousList();
     final url = 'https://www.googleapis.com/books/v1/volumes?q=$bookName';
     try {
       http.Response response = await http.get(url);
@@ -49,5 +50,15 @@ class Books extends ChangeNotifier {
     } catch (e) {
       print(e);
     }
+    notifyListeners();
+  }
+
+  Book getBookById(String id) {
+    return _searchedBooksList.firstWhere((element) => (element.id == id));
+  }
+
+  void clearPreviousList() {
+    _searchedBooksList.clear();
+    notifyListeners();
   }
 }
