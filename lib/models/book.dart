@@ -5,14 +5,15 @@ class Book {
   final String thumbnailUrl;
   final List<String> authors;
   final String previewLink;
+  final String infoLink;
+
   final String buyLink;
   final List<String> categories;
   final String description;
   final String publisher;
   final String publishedDate;
   final String pdfUrl;
-  final double averageRating;
-  final int ratingsCount;
+  final String averageRating;
   final String webReaderLink;
   final int pageCount;
 
@@ -23,6 +24,7 @@ class Book {
       this.thumbnailUrl,
       this.authors,
       this.previewLink,
+      this.infoLink,
       this.buyLink,
       this.categories,
       this.description,
@@ -30,7 +32,6 @@ class Book {
       this.publishedDate,
       this.pdfUrl,
       this.averageRating,
-      this.ratingsCount,
       this.webReaderLink,
       this.pageCount});
 }

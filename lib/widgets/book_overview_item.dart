@@ -16,7 +16,9 @@ class BookOverviewItem extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         showModalBottomSheet(
-            barrierColor: kBarrierColor,
+            elevation: 18.0,
+            isScrollControlled: true,
+//            barrierColor: kBarrierColor,
             context: context,
             builder: (context) {
               return BookDetailBottomSheet(bookId);
