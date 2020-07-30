@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 
+//-----SearchScreen-------//
+//HEADER
+const kSearchScreenHeaderStyle =
+    TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold);
+
 //SEARCH BAR
 const kSearchBarRadius = 15.0;
 const kSearchBarHeight = 42.0;

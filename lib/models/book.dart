@@ -1,4 +1,5 @@
 class Book {
+  final String id;
   final String title;
   final String subtitle;
   final String thumbnailUrl;
@@ -10,13 +11,14 @@ class Book {
   final String publisher;
   final String publishedDate;
   final String pdfUrl;
-  final int averageRating;
+  final double averageRating;
   final int ratingsCount;
   final String webReaderLink;
   final int pageCount;
 
   Book(
-      {this.title,
+      {this.id,
+      this.title,
       this.subtitle,
       this.thumbnailUrl,
       this.authors,
