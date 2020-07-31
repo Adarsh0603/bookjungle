@@ -41,40 +41,56 @@ class BookDetailBottomSheet extends StatelessWidget {
             top: -kBookImageHeight / 2,
             child: Card(
               elevation: 10.0,
-              shape: kSearchBarShape,
+              shape: kRoundedCornersShape,
               child: ClipRRect(
-                borderRadius: BorderRadius.circular(8.0),
+                borderRadius: BorderRadius.circular(15.0),
                 child: Image.network(
                   book.thumbnailUrl,
-                  height: kBookImageHeight,
+//                  height: kBookImageHeight,
+                  fit: BoxFit.fitWidth,
                 ),
               ),
             ),
           ),
           Positioned(
             right: 20,
-            top: 40,
+            top: 20,
             child: IconButton(
               icon: Icon(Icons.share),
               onPressed: () {
                 print(book.infoLink);
-                Share.share('Check out this book book ${book.infoLink}');
+                Share.share(
+                    'Check out this Book:\n ${book.title} \n ${book.infoLink}');
               },
             ),
           ),
           Positioned(
             right: 20,
-            top: 80,
+            top: 60,
             child: IconButton(
               icon: Icon(Icons.bookmark),
               onPressed: () {
-                Scaffold.of(context).showSnackBar(SnackBar(
-                  behavior: SnackBarBehavior.floating,
-                  content: Text('ADDED TO BOOKSHELF'),
-                ));
+                print('Added to bookshelf');
               },
             ),
           ),
+          if (book.isEbook)
+            Positioned(
+                left: 10,
+                top: 60,
+                child: Card(
+                  elevation: 3.0,
+                  margin: EdgeInsets.all(0),
+                  child: Container(
+                    padding: EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                    color: Colors.amberAccent,
+                    child: Text(
+                      'E-Book',
+                      style: TextStyle(
+                          color: Colors.white, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                )),
           Positioned(
             right: 20,
             top: -(kBookImageHeight / 2),

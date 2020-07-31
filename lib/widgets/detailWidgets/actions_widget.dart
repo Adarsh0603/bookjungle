@@ -1,9 +1,6 @@
-import 'dart:ffi';
-
 import 'package:books_app/models/book.dart';
 import 'package:books_app/services/utils.dart';
 import 'package:flutter/material.dart';
-import 'package:share/share.dart';
 
 class ActionsWidget extends StatelessWidget {
   final Book book;
@@ -24,21 +21,27 @@ class ActionsWidget extends StatelessWidget {
         ),
         SizedBox(width: 5.0),
         ActionButton(
-          label: 'BUY',
-          onPressed: () async {
-            print(book.buyLink);
-            await Utils.launchURL(book.buyLink);
-          },
+          label: book.saleability != 'FOR_SALE'
+              ? 'N/A'
+              : '${book.amount} ${book.currencyCode}',
+          onPressed: book.saleability != 'FOR_SALE'
+              ? null
+              : () async {
+                  print(book.buyLink);
+                  await Utils.launchURL(book.buyLink);
+                },
           icon: Icons.shop,
         ),
         SizedBox(width: 5.0),
         ActionButton(
           label: 'READ',
           icon: Icons.import_contacts,
-          onPressed: () async {
-            print(book.webReaderLink);
-            await Utils.launchURL(book.webReaderLink);
-          },
+          onPressed: book.accessViewStatus != 'SAMPLE'
+              ? null
+              : () async {
+                  print(book.webReaderLink);
+                  await Utils.launchURL(book.webReaderLink);
+                },
         ),
       ],
     );
@@ -61,16 +64,10 @@ class ActionButton extends StatelessWidget {
         style: TextStyle(fontSize: 10.0),
       ),
       onPressed: onPressed,
-      icon: Icon(icon),
+      icon: Icon(
+        icon,
+        size: 16.0,
+      ),
     );
   }
 }
-//Expanded(
-//          child: IconButton(
-//            icon: Icon(Icons.share),
-//            onPressed: () {
-//              print(book.infoLink);
-//              Share.share('Check out this book book ${book.infoLink}');
-//            },
-//          ),
-//        )

@@ -23,34 +23,44 @@ class Books extends ChangeNotifier {
         var accessInfo = book['accessInfo'];
         _searchedBooksList.add(
           Book(
-              id: book['id'],
-              title: volumeInfo['title'],
-              subtitle: volumeInfo['subtitle'],
-              publishedDate: volumeInfo['publishedDate'] == null
-                  ? '---'
-                  : volumeInfo['publishedDate'],
-              authors: (volumeInfo['authors'] as List<dynamic>)
-                  .map((author) => author.toString())
-                  .toList(),
-              publisher: volumeInfo['publisher'] == null
-                  ? '---'
-                  : volumeInfo['publisher'],
-              description: volumeInfo['description'] ?? 'NOT AVAILABLE',
-              pageCount: volumeInfo['pageCount'],
-              categories: volumeInfo['categories'] == null
-                  ? []
-                  : (volumeInfo['categories'] as List<dynamic>)
-                      .map((category) => category.toString())
-                      .toList(),
-              averageRating: volumeInfo['averageRating'] == null
-                  ? '---'
-                  : volumeInfo['averageRating'].toString(),
-              thumbnailUrl: volumeInfo['imageLinks']['thumbnail'],
-              previewLink: volumeInfo['previewLink'],
-              infoLink: volumeInfo['infoLink'],
-              buyLink: saleInfo['buyLink'],
-              pdfUrl: accessInfo['pdf']['downloadLink'],
-              webReaderLink: accessInfo['webReaderLink']),
+            id: book['id'],
+            title: volumeInfo['title'],
+            subtitle: volumeInfo['subtitle'],
+            publishedDate: volumeInfo['publishedDate'] == null
+                ? '---'
+                : volumeInfo['publishedDate'],
+            authors: (volumeInfo['authors'] as List<dynamic>)
+                .map((author) => author.toString())
+                .toList(),
+            publisher: volumeInfo['publisher'] == null
+                ? '---'
+                : volumeInfo['publisher'],
+            description:
+                volumeInfo['description'] ?? 'No description available.',
+            pageCount: volumeInfo['pageCount'],
+            categories: volumeInfo['categories'] == null
+                ? []
+                : (volumeInfo['categories'] as List<dynamic>)
+                    .map((category) => category.toString())
+                    .toList(),
+            averageRating: volumeInfo['averageRating'] == null
+                ? '---'
+                : volumeInfo['averageRating'].toString(),
+            thumbnailUrl: volumeInfo['imageLinks']['thumbnail'],
+            previewLink: volumeInfo['previewLink'],
+            infoLink: volumeInfo['infoLink'],
+            buyLink: saleInfo['buyLink'],
+            webReaderLink: accessInfo['webReaderLink'],
+            isEbook: saleInfo['isEbook'],
+            saleability: saleInfo['saleability'],
+            amount: saleInfo['saleability'] != 'FOR_SALE'
+                ? '---'
+                : saleInfo['retailPrice']['amount'].toString(),
+            currencyCode: saleInfo['saleability'] != 'FOR_SALE'
+                ? '---'
+                : saleInfo['retailPrice']['currencyCode'],
+            accessViewStatus: accessInfo['accessViewStatus'],
+          ),
         );
       });
     } catch (e) {

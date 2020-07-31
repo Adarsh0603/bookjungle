@@ -17,9 +17,12 @@ class SearchBar extends StatelessWidget {
           children: <Widget>[
             Expanded(
                 flex: 1,
-                child: Icon(
-                  Icons.search,
-                  color: kSearchBarHintColor,
+                child: Hero(
+                  tag: 'searchIcon',
+                  child: Icon(
+                    Icons.search,
+                    color: kSearchBarHintColor,
+                  ),
                 )),
             Expanded(
               flex: 5,

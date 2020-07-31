@@ -1,4 +1,3 @@
-import 'package:books_app/screens/book_detail_bottom_sheet.dart';
 import 'package:flutter/material.dart';
 
 //--------Colors-----//
@@ -11,11 +10,18 @@ const kSearchScreenHeaderStyle =
 
 //SEARCH BAR
 const kSearchBarRadius = 15.0;
-const kSearchBarHeight = 42.0;
+const kSearchBarHeight = 56.0;
 const kSearchBarHintColor = Colors.black38;
 const kSearchBarShape = RoundedRectangleBorder(
   borderRadius: BorderRadius.all(
     Radius.circular(kSearchBarRadius),
+  ),
+);
+
+const kRoundedCornerRadius = 15.0;
+const kRoundedCornersShape = RoundedRectangleBorder(
+  borderRadius: BorderRadius.all(
+    Radius.circular(kRoundedCornerRadius),
   ),
 );
 

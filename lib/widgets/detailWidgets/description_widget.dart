@@ -33,6 +33,7 @@ class DescriptionWidget extends StatelessWidget {
             ),
             Expanded(
               child: Container(
+                width: double.infinity,
                 child: SingleChildScrollView(
                     child: Text(
                   book.description,

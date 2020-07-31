@@ -6,16 +6,19 @@ class Book {
   final List<String> authors;
   final String previewLink;
   final String infoLink;
-
   final String buyLink;
   final List<String> categories;
   final String description;
   final String publisher;
   final String publishedDate;
-  final String pdfUrl;
   final String averageRating;
   final String webReaderLink;
   final int pageCount;
+  final bool isEbook;
+  final String saleability;
+  final String amount;
+  final String currencyCode;
+  final String accessViewStatus;
 
   Book(
       {this.id,
@@ -30,8 +33,12 @@ class Book {
       this.description,
       this.publisher,
       this.publishedDate,
-      this.pdfUrl,
       this.averageRating,
       this.webReaderLink,
-      this.pageCount});
+      this.pageCount,
+      this.isEbook,
+      this.saleability,
+      this.amount,
+      this.currencyCode,
+      this.accessViewStatus});
 }

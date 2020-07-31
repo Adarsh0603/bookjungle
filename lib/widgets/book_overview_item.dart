@@ -18,7 +18,7 @@ class BookOverviewItem extends StatelessWidget {
         showModalBottomSheet(
             elevation: 18.0,
             isScrollControlled: true,
-//            barrierColor: kBarrierColor,
+            barrierColor: kBarrierColor,
             context: context,
             builder: (context) {
               return BookDetailBottomSheet(bookId);
@@ -30,10 +30,14 @@ class BookOverviewItem extends StatelessWidget {
           Expanded(
             flex: 8,
             child: Card(
+              shape: kRoundedCornersShape,
               elevation: 4.0,
-              child: Image.network(
-                book.thumbnailUrl,
-                fit: BoxFit.fitHeight,
+              child: ClipRRect(
+                borderRadius: BorderRadius.all(Radius.circular(8.0)),
+                child: Image.network(
+                  book.thumbnailUrl,
+                  fit: BoxFit.fitHeight,
+                ),
               ),
             ),
           ),

@@ -26,10 +26,12 @@ class BookDetailsWidget extends StatelessWidget {
         DescriptionWidget(book),
         SizedBox(height: 10.0),
         Divider(),
+        SizedBox(height: 10.0),
         MetadataWidget(book),
         SizedBox(height: 10.0),
         Divider(),
         ActionsWidget(book),
+        SizedBox(height: 10.0),
       ],
     );
   }
