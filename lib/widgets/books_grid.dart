@@ -13,7 +13,7 @@ class BooksGrid extends StatelessWidget {
         child: Consumer<Books>(
           builder: (BuildContext context, books, _) => Column(
             children: <Widget>[
-              books.isLoading
+              books.getBooksList.length == 00
                   ? Expanded(child: Center(child: CircularProgressIndicator()))
                   : books.reachedEnd
                       ? Expanded(child: Center(child: Text('No More Books')))
@@ -36,7 +36,10 @@ class BooksGrid extends StatelessWidget {
                                 }),
                           ),
                         ),
-              if (!books.firstLoad) Paginator(),
+              if (!books.firstLoad)
+                Paginator(),
+
+              //this is a category branch comment
             ],
           ),
         ),

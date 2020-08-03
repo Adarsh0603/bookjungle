@@ -43,12 +43,16 @@ class BookDetailBottomSheet extends StatelessWidget {
               child: Card(
                 elevation: 10.0,
                 shape: kRoundedCornersShape,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(15.0),
-                  child: Image.network(
-                    book.thumbnailUrl,
+                child: Container(
+                  width: 100,
+                  height: 150,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(15.0),
+                    child: Image.network(
+                      book.thumbnailUrl,
 //                  height: kBookImageHeight,
-                    fit: BoxFit.fitWidth,
+                      fit: BoxFit.fitWidth,
+                    ),
                   ),
                 ),
               ),

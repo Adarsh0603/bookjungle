@@ -60,6 +60,8 @@ class Books extends ChangeNotifier {
 
   Future<void> getSearchedBookData(String bookName) async {
     calledBy = PaginatorCall.byTitle;
+    _searchedBooksList.clear();
+    notifyListeners();
     _searchedBook = bookName;
     var url =
         'https://www.googleapis.com/books/v1/volumes?q=intitle:$bookName&maxResults=$_singleLoadBookCount&startIndex=$startIndex';

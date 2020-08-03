@@ -31,25 +31,28 @@ class BookOverviewItem extends StatelessWidget {
         children: <Widget>[
           Expanded(
             flex: 5,
-            child: Card(
-              color: Colors.grey[100],
-              shape: kRoundedCornersShape,
-              elevation: 4.0,
-              child: ClipRRect(
-                borderRadius: BorderRadius.all(Radius.circular(8.0)),
-                child: FadeInImage.memoryNetwork(
-                  image: book.thumbnailUrl,
-                  fit: BoxFit.fitHeight,
-                  placeholder: kTransparentImage,
+            child: Padding(
+              padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+              child: Card(
+                color: Colors.grey[100],
+                shape: kRoundedCornersShape,
+                elevation: 4.0,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.all(Radius.circular(8.0)),
+                  child: FadeInImage.memoryNetwork(
+                    image: book.thumbnailUrl,
+                    fit: BoxFit.cover,
+                    placeholder: kTransparentImage,
+                  ),
                 ),
               ),
             ),
           ),
           SizedBox(height: 4.0),
           Expanded(
-            flex: 1,
+            flex: 2,
             child: Text(
-              book.title != null ? Utils.trimString(book.title, 22) : '---',
+              book.title != null ? Utils.trimString(book.title, 18) : '---',
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 12.0, fontWeight: FontWeight.bold),
             ),
