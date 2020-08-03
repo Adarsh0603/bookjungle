@@ -27,12 +27,20 @@ class SearchBar extends StatelessWidget {
             Expanded(
               flex: 5,
               child: TextField(
+                autofocus: true,
                 cursorColor: kSearchBarHintColor,
                 decoration: kSearchBarDecoration,
                 textInputAction: TextInputAction.search,
                 onSubmitted: (value) async {
+                  if (value == '') return;
+                  Provider.of<Books>(context, listen: false).setStartIndex();
+
+                  Provider.of<Books>(context, listen: false)
+                      .toggleTotalItemsCalculation(true);
                   await Provider.of<Books>(context, listen: false)
                       .getSearchedBookData(value);
+                  Provider.of<Books>(context, listen: false)
+                      .toggleTotalItemsCalculation(false);
                 },
               ),
             ),

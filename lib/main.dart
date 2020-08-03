@@ -1,6 +1,10 @@
 import 'package:books_app/providers/books.dart';
+import 'package:books_app/providers/bookshelf.dart';
+import 'package:books_app/providers/nyt.dart';
+import 'package:books_app/screens/bookshelf_screen.dart';
 import 'package:books_app/screens/home_screen.dart';
 import 'package:books_app/screens/search_screen.dart';
+import 'package:books_app/screens/specific_search_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
@@ -17,8 +21,18 @@ class BooksApp extends StatelessWidget {
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
     ]);
-    return ChangeNotifierProvider(
-      create: (BuildContext context) => Books(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (BuildContext context) => Books(),
+        ),
+        ChangeNotifierProvider(
+          create: (BuildContext context) => NYT(),
+        ),
+        ChangeNotifierProvider(
+          create: (BuildContext context) => Bookshelf(),
+        ),
+      ],
       child: MaterialApp(
         theme: ThemeData(
             bottomSheetTheme: BottomSheetThemeData(
@@ -28,6 +42,8 @@ class BooksApp extends StatelessWidget {
         home: HomeScreen(),
         routes: {
           SearchScreen.routeName: (context) => SearchScreen(),
+          BookShelfScreen.routeName: (context) => BookShelfScreen(),
+          SpecificSearchScreen.routeName: (context) => SpecificSearchScreen(),
         },
       ),
     );

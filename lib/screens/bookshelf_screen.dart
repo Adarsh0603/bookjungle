@@ -39,7 +39,8 @@ class _BookShelfScreenState extends State<BookShelfScreen> {
                           : ListView.builder(
                               itemCount: bookshelf.savedBooks.length,
                               itemBuilder: (ctx, i) => SavedBookItem(
-                                  bookshelf.savedBooks.reversed.toList()[i]));
+                                  bookshelf.savedBooks.reversed.toList()[i]),
+                            );
                 },
               ),
             );

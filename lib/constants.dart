@@ -43,3 +43,13 @@ const kSearchBarDecoration = InputDecoration(
 const kBookImageHeight = 180.0;
 
 final kBarrierColor = Color(0xffE7F2F9);
+
+//-----------------------Showcase--------///
+const kBestsellersShowcaseStyle = RoundedRectangleBorder(
+  borderRadius: BorderRadius.only(
+    topLeft: Radius.circular(35.0),
+    bottomLeft: Radius.circular(35.0),
+  ),
+);
+const kShowcaseHeaderTextStyle =
+    TextStyle(fontWeight: FontWeight.bold, fontSize: 22.0);
