@@ -1,4 +1,5 @@
 import 'package:books_app/providers/bookshelf.dart';
+import 'package:books_app/widgets/navbar.dart';
 import 'package:books_app/widgets/saved_book_item.dart';
 import 'package:flutter/material.dart';
 
@@ -15,6 +16,8 @@ class _BookShelfScreenState extends State<BookShelfScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: NavBar(BookShelfScreen.routeName),
       appBar: AppBar(
         title: Text('Bookshelf'),
       ),

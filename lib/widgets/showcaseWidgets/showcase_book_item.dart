@@ -24,12 +24,15 @@ class ShowcaseBookItem extends StatelessWidget {
               return ShowcaseSearchBottomSheet(book);
             });
       },
-      child: Padding(
+      child: Container(
+        margin: EdgeInsets.symmetric(horizontal: 8.0),
         padding: const EdgeInsets.symmetric(horizontal: 4.0, vertical: 0.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Expanded(
+            Container(
+              height: MediaQuery.of(context).size.height * 0.2,
               child: Card(
                 shape: kRoundedCornersShape,
                 elevation: 4.0,

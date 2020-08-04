@@ -4,6 +4,7 @@ import 'package:books_app/providers/categories.dart';
 import 'package:books_app/providers/nyt.dart';
 import 'package:books_app/screens/bookshelf_screen.dart';
 import 'package:books_app/screens/home_screen.dart';
+import 'package:books_app/screens/nyt_screen.dart';
 import 'package:books_app/screens/search_screen.dart';
 import 'package:books_app/screens/specific_search_screen.dart';
 import 'package:flutter/material.dart';
@@ -43,11 +44,14 @@ class BooksApp extends StatelessWidget {
                 backgroundColor: Colors.black.withOpacity(0))),
         debugShowCheckedModeBanner: false,
         title: 'BookHouse',
-        home: HomeScreen(),
+//        home: HomeScreen(),
+        initialRoute: HomeScreen.routeName,
         routes: {
           SearchScreen.routeName: (context) => SearchScreen(),
           BookShelfScreen.routeName: (context) => BookShelfScreen(),
           SpecificSearchScreen.routeName: (context) => SpecificSearchScreen(),
+          NYTScreen.routeName: (context) => NYTScreen(),
+          HomeScreen.routeName: (context) => HomeScreen(),
         },
       ),
     );

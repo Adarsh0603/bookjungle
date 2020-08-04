@@ -72,31 +72,28 @@ class ShowcaseSearchBottomSheet extends StatelessWidget {
                   ),
                 ),
                 SizedBox(width: 10),
-                Expanded(
-                  flex: 2,
-                  child: Container(
-                    width: 100,
-                    height: 150,
-                    child: Card(
-                      elevation: 10.0,
-                      shape: kRoundedCornersShape,
-                      child: GestureDetector(
-                        onTap: () {
+                Container(
+                  width: MediaQuery.of(context).size.height * 0.15,
+                  height: MediaQuery.of(context).size.height * 0.2,
+                  child: Card(
+                    elevation: 10.0,
+                    shape: kRoundedCornersShape,
+                    child: GestureDetector(
+                      onTap: () {
 //                          Navigator.of(context).pop();
-                          Navigator.of(context).pushNamed(
-                              SpecificSearchScreen.routeName,
-                              arguments: {
-                                'bookTitle': book.title,
-                                'bookAuthor': book.singleAuthor
-                              });
-                        },
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(15.0),
-                          child: Image.network(
-                            book.thumbnailUrl,
+                        Navigator.of(context).pushNamed(
+                            SpecificSearchScreen.routeName,
+                            arguments: {
+                              'bookTitle': book.title,
+                              'bookAuthor': book.singleAuthor
+                            });
+                      },
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(15.0),
+                        child: Image.network(
+                          book.thumbnailUrl,
 //                  height: kBookImageHeight,
-                            fit: BoxFit.cover,
-                          ),
+                          fit: BoxFit.cover,
                         ),
                       ),
                     ),

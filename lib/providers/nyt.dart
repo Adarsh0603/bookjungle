@@ -5,9 +5,19 @@ import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
 
 class NYT with ChangeNotifier {
+  bool _loaded = false;
   List<String> _categories = [];
   List<Book> _bestSellers = [];
   String _selectedCategory = '';
+
+  bool get isLoaded {
+    return _loaded;
+  }
+
+  void setLoading(bool loadingState) {
+    _loaded = loadingState;
+    notifyListeners();
+  }
 
   List<Book> get getShowcaseBooks {
     return [..._bestSellers];

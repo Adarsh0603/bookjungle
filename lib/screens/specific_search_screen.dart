@@ -22,14 +22,34 @@ class SpecificSearchScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Text(
-                'Search results for:',
-                style: TextStyle(color: kLightColor, fontSize: 12),
-              ),
-              SizedBox(height: 5.0),
-              Text(
-                searchArgs['bookTitle'],
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.only(left: 16.0),
+                    child: GestureDetector(
+                      child: Icon(Icons.arrow_back),
+                      onTap: () {
+                        Navigator.of(context).pop();
+                      },
+                    ),
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: <Widget>[
+                      Text(
+                        'Search results for:',
+                        style: TextStyle(color: kLightColor, fontSize: 12),
+                      ),
+                      SizedBox(height: 5.0),
+                      Text(
+                        searchArgs['bookTitle'],
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.bold),
+                      ),
+                    ],
+                  ),
+                ],
               ),
               Divider(),
               FutureBuilder(

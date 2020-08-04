@@ -1,5 +1,6 @@
 import 'package:books_app/constants.dart';
 import 'package:books_app/widgets/books_grid.dart';
+import 'package:books_app/widgets/navbar.dart';
 import 'package:books_app/widgets/search_bar.dart';
 import 'package:flutter/material.dart';
 
@@ -14,6 +15,8 @@ class _SearchScreenState extends State<SearchScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: NavBar(SearchScreen.routeName),
       body: SafeArea(
         child: Column(
           children: <Widget>[
@@ -33,6 +36,7 @@ class _SearchScreenState extends State<SearchScreen> {
               ),
             ),
             BooksGrid(),
+            SizedBox(height: 80),
           ],
         ),
       ),

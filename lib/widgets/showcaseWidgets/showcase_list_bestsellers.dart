@@ -23,7 +23,7 @@ class ShowcaseList extends StatelessWidget {
               ),
             ),
             Divider(
-              height: 10,
+              height: 5,
             ),
             Container(
               height: MediaQuery.of(context).size.height * 0.4,
@@ -34,16 +34,22 @@ class ShowcaseList extends StatelessWidget {
                         size: 30,
                       ),
                     )
-                  : Padding(
-                      padding: const EdgeInsets.only(top: 12.0, bottom: 52),
-                      child: ListView.builder(
-                          scrollDirection: Axis.horizontal,
-                          itemExtent: 140.0,
-                          itemCount: nyt.getShowcaseBooks.length,
-                          itemBuilder: (context, i) {
-                            return ShowcaseBookItem(
-                                nyt.getShowcaseBooks[i].rank);
-                          }),
+                  : Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Container(
+                          height: MediaQuery.of(context).size.height * 0.3,
+                          child: ListView.builder(
+                              scrollDirection: Axis.horizontal,
+                              itemExtent:
+                                  MediaQuery.of(context).size.height * 0.18,
+                              itemCount: nyt.getShowcaseBooks.length,
+                              itemBuilder: (context, i) {
+                                return ShowcaseBookItem(
+                                    nyt.getShowcaseBooks[i].rank);
+                              }),
+                        ),
+                      ],
                     ),
             ),
           ],
