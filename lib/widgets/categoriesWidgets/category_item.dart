@@ -42,7 +42,6 @@ class _CategoryItemState extends State<CategoryItem> {
           shape: kCategoryItemShape,
           elevation: elevation,
           child: Container(
-//            width: 150,
             padding: EdgeInsets.symmetric(horizontal: 10),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
