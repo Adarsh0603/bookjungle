@@ -34,20 +34,29 @@ class SpecificSearchScreen extends StatelessWidget {
                       },
                     ),
                   ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: <Widget>[
-                      Text(
-                        'Search results for:',
-                        style: TextStyle(color: kLightColor, fontSize: 12),
-                      ),
-                      SizedBox(height: 5.0),
-                      Text(
-                        searchArgs['bookTitle'],
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold),
-                      ),
-                    ],
+                  SizedBox(width: 20),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: <Widget>[
+                        Text(
+                          searchArgs['categoryTitle'] != null
+                              ? 'CATEGORY'
+                              : 'Search results for:',
+                          style: TextStyle(color: kLightColor, fontSize: 12),
+                        ),
+                        SizedBox(height: 2.0),
+                        Text(
+                          searchArgs['bookTitle'] != null
+                              ? searchArgs['bookTitle']
+                              : searchArgs['categoryTitle'],
+                          softWrap: true,
+                          textAlign: TextAlign.end,
+                          style: TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),

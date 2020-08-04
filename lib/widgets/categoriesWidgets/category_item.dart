@@ -1,5 +1,6 @@
 import 'package:books_app/constants.dart';
 import 'package:books_app/models/category.dart';
+import 'package:books_app/screens/specific_search_screen.dart';
 import 'package:flutter/material.dart';
 
 class CategoryItem extends StatelessWidget {
@@ -12,7 +13,13 @@ class CategoryItem extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(left: 5.0, bottom: 75.0, right: 5),
       child: GestureDetector(
-        onTap: () {},
+        onTap: () {
+          Navigator.of(context)
+              .pushNamed(SpecificSearchScreen.routeName, arguments: {
+            'category': category.categoryLink,
+            'categoryTitle': category.categoryTitle,
+          });
+        },
         child: Card(
           shape: kRoundedCornersShape,
           elevation: 18,

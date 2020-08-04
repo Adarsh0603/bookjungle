@@ -97,6 +97,11 @@ class Books extends ChangeNotifier {
       url =
           'https://www.googleapis.com/books/v1/volumes?q=intitle:${searchArgs['bookTitle']}+inauthor:${searchArgs['bookAuthor']}&orderBy=newest&maxResults=$_singleLoadBookCount&startIndex=$startIndex';
     }
+    if (searchArgs.containsKey('category')) {
+      url =
+          'https://www.googleapis.com/books/v1/volumes?q=subject:${searchArgs['category']}&orderBy=newest&maxResults=$_singleLoadBookCount&startIndex=$startIndex';
+      print(url);
+    }
     try {
       _reachedEnd = false;
       http.Response response = await http.get(url);
