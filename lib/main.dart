@@ -1,5 +1,6 @@
 import 'package:books_app/providers/books.dart';
 import 'package:books_app/providers/bookshelf.dart';
+import 'package:books_app/providers/categories.dart';
 import 'package:books_app/providers/nyt.dart';
 import 'package:books_app/screens/bookshelf_screen.dart';
 import 'package:books_app/screens/home_screen.dart';
@@ -31,6 +32,9 @@ class BooksApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (BuildContext context) => Bookshelf(),
+        ),
+        ChangeNotifierProvider(
+          create: (BuildContext context) => Categories(),
         ),
       ],
       child: MaterialApp(

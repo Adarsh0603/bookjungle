@@ -33,7 +33,6 @@ class Books extends ChangeNotifier {
 
   void toggleTotalItemsCalculation(bool toggle) {
     _firstLoad = toggle;
-//    notifyListeners();
   }
 
   List<Book> get getBooksList {
@@ -42,7 +41,6 @@ class Books extends ChangeNotifier {
 
   bool get isLoading {
     return _isLoading;
-//    notifyListeners();
   }
 
   int get totalBookCount {
@@ -51,7 +49,6 @@ class Books extends ChangeNotifier {
 
   void setStartIndex() {
     startIndex = 0;
-//    notifyListeners();
   }
 
   bool get reachedEnd {
@@ -61,7 +58,6 @@ class Books extends ChangeNotifier {
   Future<void> getSearchedBookData(String bookName) async {
     calledBy = PaginatorCall.byTitle;
     _searchedBooksList.clear();
-    notifyListeners();
     _searchedBook = bookName;
     var url =
         'https://www.googleapis.com/books/v1/volumes?q=intitle:$bookName&maxResults=$_singleLoadBookCount&startIndex=$startIndex';

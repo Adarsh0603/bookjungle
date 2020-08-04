@@ -13,7 +13,7 @@ class BooksGrid extends StatelessWidget {
         child: Consumer<Books>(
           builder: (BuildContext context, books, _) => Column(
             children: <Widget>[
-              books.getBooksList.length == 00
+              books.isLoading
                   ? Expanded(child: Center(child: CircularProgressIndicator()))
                   : books.reachedEnd
                       ? Expanded(child: Center(child: Text('No More Books')))
@@ -27,8 +27,8 @@ class BooksGrid extends StatelessWidget {
                                 gridDelegate:
                                     SliverGridDelegateWithFixedCrossAxisCount(
                                         crossAxisCount: 3,
-                                        mainAxisSpacing: 10.0,
-                                        crossAxisSpacing: 10.0,
+                                        mainAxisSpacing: 5.0,
+                                        crossAxisSpacing: 2.0,
                                         childAspectRatio: 2 / 3),
                                 itemBuilder: (context, i) {
                                   return BookOverviewItem(
