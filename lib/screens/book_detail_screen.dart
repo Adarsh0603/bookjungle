@@ -35,7 +35,7 @@ class BookDetailBottomSheet extends StatelessWidget {
               ),
               child: Padding(
                 padding: const EdgeInsets.only(
-                    top: (kBookImageHeight / 2), left: 16.0, right: 16.0),
+                    top: (kBookImageHeight / 2) + 20, left: 16.0, right: 16.0),
                 child: BookDetailsWidget(book),
               ),
             ),

@@ -54,9 +54,13 @@ class SavedBookItem extends StatelessWidget {
             await Provider.of<Bookshelf>(context, listen: false)
                 .removeSavedBook(savedBook.id);
           },
-          child: Column(
-            children: <Widget>[
-              Row(
+          child: Container(
+            decoration: BoxDecoration(
+                border: Border(
+                    bottom: BorderSide(width: 1, color: Colors.grey[200]))),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8.0),
+              child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Container(
@@ -96,10 +100,7 @@ class SavedBookItem extends StatelessWidget {
                   ),
                 ],
               ),
-              Divider(
-                height: 30,
-              ),
-            ],
+            ),
           ),
         ),
       ),

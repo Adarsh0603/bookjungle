@@ -30,21 +30,33 @@ class _BookShelfScreenState extends State<BookShelfScreen> {
           builder: (BuildContext context, bookshelf, Widget child) {
             return Container(
               padding: EdgeInsets.only(top: 16.0),
-              child: FutureBuilder(
-                future: Provider.of<Bookshelf>(context, listen: false)
-                    .fetchAndSetBooks(),
-                builder:
-                    (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
-                  return snapshot.connectionState == ConnectionState.waiting
-                      ? Center(child: CircularProgressIndicator())
-                      : bookshelf.savedBooks.length <= 0
-                          ? EmptyBookshelfWidget()
-                          : ListView.builder(
-                              itemCount: bookshelf.savedBooks.length,
-                              itemBuilder: (ctx, i) => SavedBookItem(
-                                  bookshelf.savedBooks.reversed.toList()[i]),
-                            );
-                },
+              child: Column(
+                children: <Widget>[
+                  Container(
+                    height: MediaQuery.of(context).size.height * 0.75,
+                    child: FutureBuilder(
+                      future: Provider.of<Bookshelf>(context, listen: false)
+                          .fetchAndSetBooks(),
+                      builder: (BuildContext context,
+                          AsyncSnapshot<dynamic> snapshot) {
+                        return snapshot.connectionState ==
+                                ConnectionState.waiting
+                            ? Center(child: CircularProgressIndicator())
+                            : bookshelf.savedBooks.length <= 0
+                                ? EmptyBookshelfWidget()
+                                : ListView.builder(
+                                    itemCount: bookshelf.savedBooks.length,
+                                    itemBuilder: (ctx, i) => SavedBookItem(
+                                        bookshelf.savedBooks.reversed
+                                            .toList()[i]),
+                                  );
+                      },
+                    ),
+                  ),
+                  SizedBox(
+                    height: 50,
+                  ),
+                ],
               ),
             );
           },

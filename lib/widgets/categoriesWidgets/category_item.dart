@@ -13,7 +13,7 @@ class CategoryItem extends StatefulWidget {
 }
 
 class _CategoryItemState extends State<CategoryItem> {
-  double elevation = 8.0;
+  double elevation = 18.0;
 
   void navigateToSpecificSearchScreen() {
     setState(() {
