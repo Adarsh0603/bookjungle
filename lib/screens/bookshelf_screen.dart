@@ -1,6 +1,7 @@
 import 'package:books_app/providers/bookshelf.dart';
 import 'package:books_app/widgets/navbar.dart';
 import 'package:books_app/widgets/saved_book_item.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
@@ -18,48 +19,56 @@ class _BookShelfScreenState extends State<BookShelfScreen> {
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: NavBar(BookShelfScreen.routeName),
-      appBar: AppBar(
-        title: Text('Bookshelf'),
-      ),
-      body: RefreshIndicator(
-        onRefresh: () async {
-          setState(() {});
-          return Future.delayed(Duration.zero);
-        },
-        child: Consumer<Bookshelf>(
-          builder: (BuildContext context, bookshelf, Widget child) {
-            return Container(
-              padding: EdgeInsets.only(top: 16.0),
-              child: Column(
-                children: <Widget>[
-                  Container(
-                    height: MediaQuery.of(context).size.height * 0.75,
-                    child: FutureBuilder(
-                      future: Provider.of<Bookshelf>(context, listen: false)
-                          .fetchAndSetBooks(),
-                      builder: (BuildContext context,
-                          AsyncSnapshot<dynamic> snapshot) {
-                        return snapshot.connectionState ==
-                                ConnectionState.waiting
-                            ? Center(child: CircularProgressIndicator())
-                            : bookshelf.savedBooks.length <= 0
-                                ? EmptyBookshelfWidget()
-                                : ListView.builder(
-                                    itemCount: bookshelf.savedBooks.length,
-                                    itemBuilder: (ctx, i) => SavedBookItem(
-                                        bookshelf.savedBooks.reversed
-                                            .toList()[i]),
-                                  );
-                      },
-                    ),
-                  ),
-                  SizedBox(
-                    height: 50,
-                  ),
-                ],
-              ),
-            );
+      body: SafeArea(
+        child: RefreshIndicator(
+          onRefresh: () async {
+            setState(() {});
+            return Future.delayed(Duration.zero);
           },
+          child: Consumer<Bookshelf>(
+            builder: (BuildContext context, bookshelf, Widget child) {
+              return Container(
+                padding: EdgeInsets.only(top: 16.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.only(left: 16.0),
+                      child: Text(
+                        'Bookshelf',
+                        textAlign: TextAlign.start,
+                        style: TextStyle(
+                            fontSize: 22, fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    Divider(),
+                    Container(
+                      padding: EdgeInsets.only(top: 8.0),
+                      height: MediaQuery.of(context).size.height * 0.78,
+                      child: FutureBuilder(
+                        future: Provider.of<Bookshelf>(context, listen: false)
+                            .fetchAndSetBooks(),
+                        builder: (BuildContext context,
+                            AsyncSnapshot<dynamic> snapshot) {
+                          return snapshot.connectionState ==
+                                  ConnectionState.waiting
+                              ? Center(child: CircularProgressIndicator())
+                              : bookshelf.savedBooks.length <= 0
+                                  ? EmptyBookshelfWidget()
+                                  : ListView.builder(
+                                      itemCount: bookshelf.savedBooks.length,
+                                      itemBuilder: (ctx, i) => SavedBookItem(
+                                          bookshelf.savedBooks.reversed
+                                              .toList()[i]),
+                                    );
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            },
+          ),
         ),
       ),
     );

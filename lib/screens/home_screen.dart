@@ -44,7 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 padding: const EdgeInsets.all(16.0),
                 child: Text(
                   'bookJungle',
-                  textAlign: TextAlign.end,
+                  textAlign: TextAlign.start,
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
                 ),
               ),
