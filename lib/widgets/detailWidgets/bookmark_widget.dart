@@ -23,7 +23,8 @@ class _BookmarkState extends State<Bookmark> {
         return IconButton(
           icon: Icon(
               snapshot.data == true ? Icons.bookmark : Icons.bookmark_border),
-          color: Colors.blue,
+          color: Colors.black,
+          iconSize: 32,
           onPressed: snapshot.data == true
               ? () async {
                   await Provider.of<Bookshelf>(context, listen: false)
@@ -37,8 +38,6 @@ class _BookmarkState extends State<Bookmark> {
                     widget.book.thumbnailUrl,
                     Utils.listToString(widget.book.authors, '   '),
                   );
-
-                  print('Added to bookshelf');
                 },
         );
       },

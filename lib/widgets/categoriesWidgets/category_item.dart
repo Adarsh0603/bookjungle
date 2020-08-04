@@ -13,7 +13,7 @@ class CategoryItem extends StatefulWidget {
 }
 
 class _CategoryItemState extends State<CategoryItem> {
-  double elevation = 18.0;
+  double elevation = 8.0;
 
   void navigateToSpecificSearchScreen() {
     setState(() {
@@ -35,14 +35,15 @@ class _CategoryItemState extends State<CategoryItem> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 5.0, bottom: 75.0, right: 5),
+      padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 5),
       child: GestureDetector(
         onTap: navigateToSpecificSearchScreen,
         child: Card(
-          shape: kRoundedCornersShape,
+          shape: kCategoryItemShape,
           elevation: elevation,
           child: Container(
-            width: 130,
+//            width: 150,
+            padding: EdgeInsets.symmetric(horizontal: 10),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -56,13 +57,17 @@ class _CategoryItemState extends State<CategoryItem> {
                   ),
                 ),
                 SizedBox(height: 10),
-                Text(
-                  widget.category.categoryTitle,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                      fontWeight: FontWeight.w500,
-                      fontSize: 14.0,
-                      color: Colors.green),
+                FittedBox(
+                  fit: BoxFit.fitHeight,
+                  child: Text(
+                    widget.category.categoryTitle,
+                    textAlign: TextAlign.center,
+                    softWrap: true,
+                    style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 14.0,
+                        color: Colors.green),
+                  ),
                 ),
               ],
             ),

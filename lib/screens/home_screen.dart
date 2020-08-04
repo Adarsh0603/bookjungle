@@ -32,25 +32,27 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: NavBar(HomeScreen.routeName),
-      body: RefreshIndicator(
-        onRefresh: () async {
-          await getBooksData();
-        },
-        child: ListView(
-          children: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                //TODO: App Title Here
-              ],
-            ),
-            SizedBox(height: 10.0),
-            Showcase(),
-            CategoriesSection(),
-            SizedBox(
-              height: 30,
-            )
-          ],
+      body: SafeArea(
+        child: RefreshIndicator(
+          onRefresh: () async {
+            await getBooksData();
+          },
+          child: ListView(
+            children: <Widget>[
+              //TODO:AppTitle Here
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Text(
+                  'bookJungle',
+                  textAlign: TextAlign.end,
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
+                ),
+              ),
+              SizedBox(height: 0.0),
+              Showcase(),
+              CategoriesSection(),
+            ],
+          ),
         ),
       ),
     );

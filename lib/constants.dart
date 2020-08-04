@@ -1,8 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 //--------Colors-----//
 const kLightColor = Colors.teal;
-
+const kPrimaryColor = Color(0xff0DB067);
 //-----SearchScreen-------//
 //HEADER
 const kSearchScreenHeaderStyle =
@@ -48,9 +49,15 @@ final kBarrierColor = Color(0xffE7F2F9);
 const kBestsellerShowcaseRadius = 35.0;
 const kBestsellersShowcaseStyle = RoundedRectangleBorder(
   borderRadius: BorderRadius.only(
-    topLeft: Radius.circular(35.0),
-    bottomLeft: Radius.circular(35.0),
+    topLeft: Radius.circular(kBestsellerShowcaseRadius),
+    bottomLeft: Radius.circular(kBestsellerShowcaseRadius),
   ),
 );
 const kShowcaseHeaderTextStyle =
     TextStyle(fontWeight: FontWeight.bold, fontSize: 22.0);
+
+const kCategoryItemShape = RoundedRectangleBorder(
+  borderRadius: BorderRadius.all(
+    Radius.circular(15),
+  ),
+);

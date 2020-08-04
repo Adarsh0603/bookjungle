@@ -1,3 +1,4 @@
+import 'package:books_app/constants.dart';
 import 'package:books_app/providers/books.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -9,7 +10,7 @@ class Paginator extends StatelessWidget {
       builder: (BuildContext context, books, _) {
         return Card(
           elevation: 8.0,
-          color: Color(0xff0DB067),
+          color: kPrimaryColor,
           child: Padding(
             padding: const EdgeInsets.only(left: 16.0, right: 16.0),
             child: Row(

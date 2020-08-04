@@ -1,5 +1,6 @@
 import 'package:books_app/constants.dart';
 import 'package:books_app/models/book.dart';
+import 'package:books_app/services/utils.dart';
 import 'package:books_app/widgets/detailWidgets/book_details_widget.dart';
 import 'package:books_app/widgets/detailWidgets/bookmark_widget.dart';
 import 'package:flutter/cupertino.dart';
@@ -58,7 +59,7 @@ class BookDetailBottomSheet extends StatelessWidget {
               ),
             ),
             Positioned(
-              right: 20,
+              left: 25,
               top: 20,
               child: IconButton(
                 icon: Icon(Icons.share),
@@ -71,41 +72,42 @@ class BookDetailBottomSheet extends StatelessWidget {
             ),
             Positioned(
               right: 20,
-              top: 60,
+              top: 20,
               child: Bookmark(bookId: book.id, book: book),
             ),
-            if (book.isEbook)
-              Positioned(
-                  left: 10,
-                  top: 60,
-                  child: Card(
-                    elevation: 3.0,
-                    margin: EdgeInsets.all(0),
-                    child: Container(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-                      color: Colors.amberAccent,
-                      child: Text(
-                        'E-Book',
-                        style: TextStyle(
-                            color: Colors.white, fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                  )),
             Positioned(
-              right: 20,
-              top: -(kBookImageHeight / 2),
-              child: IconButton(
-                icon: Icon(
-                  Icons.clear,
-                  color: Colors.white,
-                  size: 30,
+              left: 30,
+              top: 70,
+              child: Container(
+                width: 36,
+                height: 36,
+                child: GestureDetector(
+                  child: Image.asset('images/amazonicon.png'),
+                  onTap: () {
+                    Utils.launchURL(
+                        'https://www.amazon.com/s?k=${book.title} ${Utils.listToString(book.authors, ' ')}&language=en_US&currency=INR');
+                  },
                 ),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
               ),
             ),
+//            if (book.isEbook)
+//              Positioned(
+//                  left: 10,
+//                  top: 60,
+//                  child: Card(
+//                    elevation: 3.0,
+//                    margin: EdgeInsets.all(0),
+//                    child: Container(
+//                      padding:
+//                          EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+//                      color: Colors.amberAccent,
+//                      child: Text(
+//                        'E-Book',
+//                        style: TextStyle(
+//                            color: Colors.white, fontWeight: FontWeight.bold),
+//                      ),
+//                    ),
+//                  )),
           ],
         ),
       ),

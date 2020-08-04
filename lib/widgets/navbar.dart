@@ -14,21 +14,22 @@ class NavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       shape: kSearchBarShape,
-      color: Colors.green,
+      color: kPrimaryColor,
       elevation: 8,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 22.0, vertical: 12.0),
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-            NavbarButton(Icons.category, NYTScreen.routeName, currentRoute),
-            Container(height: 20, width: 30, child: VerticalDivider()),
+//            NavbarButton(Icons.category, NYTScreen.routeName, currentRoute),
+//            Container(height: 20, width: 30, child: VerticalDivider()),
             NavbarButton(Icons.collections_bookmark, BookShelfScreen.routeName,
                 currentRoute),
-            Container(height: 20, width: 30, child: VerticalDivider()),
-            NavbarButton(Icons.search, SearchScreen.routeName, currentRoute),
+
             Container(height: 20, width: 30, child: VerticalDivider()),
             NavbarButton(Icons.home, HomeScreen.routeName, currentRoute),
+            Container(height: 20, width: 30, child: VerticalDivider()),
+            NavbarButton(Icons.search, SearchScreen.routeName, currentRoute),
           ],
         ),
       ),

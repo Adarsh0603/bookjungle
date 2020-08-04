@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 class Categories with ChangeNotifier {
   List<Category> categoriesList = [
     Category('Art & Literature', 'Art and Literature', 'images/art.png'),
-    Category('Biography / Autobiography', 'Biography Autobiography',
+    Category('Biography /\n Autobiography', 'Biography Autobiography',
         'images/biography.png'),
     Category('Cooking', 'cooking', 'images/cooking.png'),
     Category('Drama', 'drama', 'images/drama.png'),
@@ -18,7 +18,7 @@ class Categories with ChangeNotifier {
     Category('Sports', 'sports', 'images/sports.png'),
     Category('Suspense', 'suspense', 'images/suspense.png'),
     Category('Thriller', 'thriller', 'images/thriller.png'),
-    Category(
-        'Travel / Photography', 'Travel and Photography', 'images/travel.png'),
+    Category('Travel /\n Photography', 'Travel and Photography',
+        'images/travel.png'),
   ];
 }
