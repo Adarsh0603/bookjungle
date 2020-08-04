@@ -45,6 +45,7 @@ const kBookImageHeight = 180.0;
 final kBarrierColor = Color(0xffE7F2F9);
 
 //-----------------------Showcase--------///
+const kBestsellerShowcaseRadius = 35.0;
 const kBestsellersShowcaseStyle = RoundedRectangleBorder(
   borderRadius: BorderRadius.only(
     topLeft: Radius.circular(35.0),

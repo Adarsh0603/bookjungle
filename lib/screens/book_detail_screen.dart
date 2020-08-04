@@ -34,7 +34,7 @@ class BookDetailBottomSheet extends StatelessWidget {
               ),
               child: Padding(
                 padding: const EdgeInsets.only(
-                    top: (kBookImageHeight / 2) + 40, left: 16.0, right: 16.0),
+                    top: (kBookImageHeight / 2), left: 16.0, right: 16.0),
                 child: BookDetailsWidget(book),
               ),
             ),
@@ -51,7 +51,7 @@ class BookDetailBottomSheet extends StatelessWidget {
                     child: Image.network(
                       book.thumbnailUrl,
 //                  height: kBookImageHeight,
-                      fit: BoxFit.fitWidth,
+                      fit: BoxFit.cover,
                     ),
                   ),
                 ),

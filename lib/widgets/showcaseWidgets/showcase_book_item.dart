@@ -55,10 +55,12 @@ class ShowcaseBookItem extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                   color: kLightColor),
             ),
-            Text(
-              Utils.trimString(book.title, 12),
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.bold),
+            Expanded(
+              child: Text(
+                Utils.trimString(book.title, 15),
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.bold),
+              ),
             )
           ],
         ),

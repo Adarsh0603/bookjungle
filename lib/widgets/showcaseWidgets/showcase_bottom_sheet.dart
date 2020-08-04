@@ -16,7 +16,7 @@ class ShowcaseSearchBottomSheet extends StatelessWidget {
       color: Color(0xff737373).withOpacity(0),
       child: Container(
         padding: EdgeInsets.all(30),
-        height: MediaQuery.of(context).size.height * 0.80,
+//        height: MediaQuery.of(context).size.height * 0.80,
         width: double.infinity,
         margin: EdgeInsets.symmetric(horizontal: 10.0, vertical: 0),
         decoration: BoxDecoration(

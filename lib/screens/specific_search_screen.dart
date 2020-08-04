@@ -67,8 +67,10 @@ class SpecificSearchScreen extends StatelessWidget {
                 builder:
                     (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
-                    return Center(
-                      child: CircularProgressIndicator(),
+                    return Expanded(
+                      child: Center(
+                        child: CircularProgressIndicator(),
+                      ),
                     );
                   } else {
                     Provider.of<Books>(context, listen: false)

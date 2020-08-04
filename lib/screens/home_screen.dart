@@ -36,21 +36,21 @@ class _HomeScreenState extends State<HomeScreen> {
         onRefresh: () async {
           await getBooksData();
         },
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 0.0),
-          child: ListView(
-            children: <Widget>[
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  //TODO: App Title Here
-                ],
-              ),
-              SizedBox(height: 10.0),
-              Showcase(),
-              CategoriesSection(),
-            ],
-          ),
+        child: ListView(
+          children: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                //TODO: App Title Here
+              ],
+            ),
+            SizedBox(height: 10.0),
+            Showcase(),
+            CategoriesSection(),
+            SizedBox(
+              height: 30,
+            )
+          ],
         ),
       ),
     );

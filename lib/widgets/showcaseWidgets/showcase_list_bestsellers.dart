@@ -1,8 +1,8 @@
 import 'package:books_app/constants.dart';
 import 'package:books_app/providers/nyt.dart';
 import 'package:books_app/widgets/showcaseWidgets/showcase_book_item.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
 
 class ShowcaseList extends StatelessWidget {
@@ -26,19 +26,36 @@ class ShowcaseList extends StatelessWidget {
               height: 5,
             ),
             Container(
-              height: MediaQuery.of(context).size.height * 0.4,
+              height: MediaQuery.of(context).size.height * 0.3,
+              margin: EdgeInsets.only(bottom: 22.0),
+              decoration: BoxDecoration(
+                  color: Color(0xfff5f7f6),
+                  borderRadius:
+                      BorderRadius.only(bottomLeft: Radius.circular(20.0))),
               child: nyt.getShowcaseBooks.length == 0
                   ? Center(
-                      child: SpinKitWave(
-                        color: Colors.green,
-                        size: 30,
+                      child: Padding(
+                      padding: const EdgeInsets.only(bottom: 8.0),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(20.0)),
+                        child: Image.asset(
+                          'images/bookLoader3.gif',
+//                      width: 100,
+                        ),
                       ),
                     )
+//                      SpinKitWave(
+//                        color: Colors.green,
+//                        size: 30,
+//                      ),
+                      )
                   : Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Container(
                           height: MediaQuery.of(context).size.height * 0.3,
+                          color: Colors.white,
                           child: ListView.builder(
                               scrollDirection: Axis.horizontal,
                               itemExtent:
