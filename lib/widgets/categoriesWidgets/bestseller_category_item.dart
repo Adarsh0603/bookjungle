@@ -49,94 +49,98 @@ class _BestSellerCategoryItemState extends State<BestSellerCategoryItem> {
   bool open = false;
   @override
   Widget build(BuildContext context) {
-    final openHeight = MediaQuery.of(context).size.height * 0.4;
+    final openHeight = MediaQuery.of(context).size.height * 0.3;
 
     return GestureDetector(
       onTap: () async {
         setState(() {
           open = !open;
-          open ? elevation = 18 : elevation = 0;
+          open ? elevation = 5 : elevation = 0;
         });
       },
       child: Padding(
         padding: EdgeInsets.only(
-            left: 8.0, top: 8.0, right: 8.0, bottom: open ? 12 : 0),
+            left: 8.0, top: open ? 12 : 0, right: 8.0, bottom: open ? 12 : 0),
         child: Material(
           elevation: elevation,
           child: Container(
-            padding: EdgeInsets.symmetric(vertical: 32.0, horizontal: 16),
-            color: Colors.white,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.only(right: 8.0),
-                    child: Text(
-                      widget.category.categoryTitle,
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: open ? 32 : 16),
-                    ),
+            decoration: BoxDecoration(
+                border: Border(
+                    bottom: BorderSide(width: 1, color: Colors.grey[200]))),
+            padding: EdgeInsets.symmetric(vertical: 32.0, horizontal: 0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.only(left: 16.0),
+                  child: Text(
+                    widget.category.categoryTitle,
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold, fontSize: open ? 32 : 16),
                   ),
-                  if (open) Divider(),
-                  SizedBox(height: 5),
-                  if (open)
-                    FutureBuilder(
-                      future:
-                          getSelectedBestsellers(widget.category.categoryLink),
-                      builder: (BuildContext context,
-                          AsyncSnapshot<dynamic> snapshot) {
-                        return snapshot.connectionState ==
-                                ConnectionState.waiting
-                            ? Container(
-                                height: openHeight,
-                                child: Image.asset('images/bookLoader3.gif'))
-                            : snapshot.hasError
-                                ? Center(
-                                    child: Text('Retry'),
-                                  )
-                                : Container(
-                                    padding: EdgeInsets.symmetric(
-                                        vertical: openHeight * 0.15,
-                                        horizontal: 0.0),
-                                    height: openHeight,
-                                    color: kBestSellerCategoryItemColor,
-                                    child: ListView.builder(
-                                        scrollDirection: Axis.horizontal,
-                                        itemExtent:
-                                            MediaQuery.of(context).size.height *
-                                                0.18,
-                                        itemCount:
-                                            _bestsellersForSelectedCategory
-                                                .length,
-                                        itemBuilder: (context, i) {
-                                          return ShowcaseBookItem(
-                                              _bestsellersForSelectedCategory[
-                                                  i]);
-                                        }),
-                                  );
-                      },
-                    ),
-                  if (open) SizedBox(height: 10),
-                  if (open)
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Text(
-                          'Books Between\n${widget.category.oldDate.substring(0, 4)} - ${widget.category.newDate.substring(0, 4)}',
-                          style: TextStyle(fontSize: 12, color: kLightColor),
-                        ),
-                        Text(
-                          'Updated\n${widget.category.updated}',
-                          textAlign: TextAlign.end,
-                          style: TextStyle(fontSize: 12, color: kLightColor),
-                        )
-                      ],
-                    ),
-                ],
-              ),
+                ),
+                SizedBox(height: 5),
+                if (open)
+                  FutureBuilder(
+                    future:
+                        getSelectedBestsellers(widget.category.categoryLink),
+                    builder: (BuildContext context,
+                        AsyncSnapshot<dynamic> snapshot) {
+                      return snapshot.connectionState == ConnectionState.waiting
+                          ? Container(
+                              color: kBestSellerCategoryItemColor,
+                              height: openHeight,
+                              child: Center(child: CircularProgressIndicator())
+//                                  Image.asset('images/bookLoader3.gif'),
+                              )
+                          : snapshot.hasError
+                              ? Container(
+                                  color: kBestSellerCategoryItemColor,
+                                  height: openHeight,
+                                  child: Center(
+                                    child: Text(
+                                        'Unable to load books.\nTry again after some time. '),
+                                  ),
+                                )
+                              : Container(
+                                  padding: EdgeInsets.symmetric(
+                                      vertical: openHeight * 0.1,
+                                      horizontal: 0.0),
+                                  height: openHeight,
+                                  color: kBestSellerCategoryItemColor,
+                                  child: ListView.builder(
+                                      scrollDirection: Axis.horizontal,
+                                      itemExtent:
+                                          MediaQuery.of(context).size.height *
+                                              0.18,
+                                      itemCount: _bestsellersForSelectedCategory
+                                          .length,
+                                      itemBuilder: (context, i) {
+                                        return ShowcaseBookItem(
+                                            _bestsellersForSelectedCategory[i]);
+                                      }),
+                                );
+                    },
+                  ),
+                if (open) SizedBox(height: 10),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Text(
+                        'Published Between\n${widget.category.oldDate.substring(0, 4)} - ${widget.category.newDate.substring(0, 4)}',
+                        style: TextStyle(fontSize: 12, color: kLightColor),
+                      ),
+                      Text(
+                        'Updated\n${widget.category.updated}',
+                        textAlign: TextAlign.end,
+                        style: TextStyle(fontSize: 12, color: kLightColor),
+                      )
+                    ],
+                  ),
+                ),
+              ],
             ),
           ),
         ),

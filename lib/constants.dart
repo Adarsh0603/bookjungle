@@ -63,4 +63,4 @@ const kCategoryItemShape = RoundedRectangleBorder(
 );
 
 //bestseller Categories
-final kBestSellerCategoryItemColor = Colors.grey[100];
+final kBestSellerCategoryItemColor = Colors.grey[50];

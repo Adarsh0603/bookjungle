@@ -21,8 +21,7 @@ class ShowcaseHeader extends StatelessWidget {
                 ),
                 GestureDetector(
                   onTap: () {
-                    Navigator.of(context)
-                        .pushReplacementNamed(NYTScreen.routeName);
+                    Navigator.of(context).pushNamed(NYTScreen.routeName);
                   },
                   child: Text(
                     'see all',
