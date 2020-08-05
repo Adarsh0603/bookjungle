@@ -1,18 +1,16 @@
 import 'package:books_app/constants.dart';
-import 'package:books_app/providers/nyt.dart';
+import 'package:books_app/models/book.dart';
 import 'package:books_app/services/utils.dart';
 import 'package:books_app/widgets/showcaseWidgets/showcase_bottom_sheet.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class ShowcaseBookItem extends StatelessWidget {
-  final int bookRank;
+  final Book book;
 
-  ShowcaseBookItem(this.bookRank);
+  ShowcaseBookItem(this.book);
 
   @override
   Widget build(BuildContext context) {
-    final book = Provider.of<NYT>(context).getShowcaseBook(bookRank);
     return GestureDetector(
       onTap: () {
         showModalBottomSheet(

@@ -11,11 +11,12 @@ class NYTScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final nyt = Provider.of<NYT>(context);
     return Scaffold(
+//        backgroundColor: Colors.grey[100],
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         floatingActionButton: NavBar(NYTScreen.routeName),
         body: SafeArea(
           child: Container(
-            height: MediaQuery.of(context).size.height * 0.8,
+            height: MediaQuery.of(context).size.height * 0.85,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[

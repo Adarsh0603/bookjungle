@@ -61,7 +61,7 @@ class ShowcaseList extends StatelessWidget {
                                   itemCount: nyt.getShowcaseBooks.length,
                                   itemBuilder: (context, i) {
                                     return ShowcaseBookItem(
-                                        nyt.getShowcaseBooks[i].rank);
+                                        nyt.getShowcaseBooks[i]);
                                   }),
                             ),
                           ],
