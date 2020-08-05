@@ -1,6 +1,6 @@
 import 'package:books_app/constants.dart';
 import 'package:books_app/providers/nyt.dart';
-import 'package:books_app/widgets/categoriesWidgets/bestseller_category_item.dart';
+import 'package:books_app/widgets/categoriesWidgets/bestseller_category_card.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -58,11 +58,12 @@ class NYTScreen extends StatelessWidget {
                     ),
                   ),
                 ),
+                SizedBox(height: 5),
                 Expanded(
                     child: ListView.builder(
                         itemCount: nyt.getAllCategories.length,
                         itemBuilder: (ctx, i) =>
-                            BestSellerCategoryItem(nyt.getAllCategories[i]))),
+                            BestSellerCategoryCard(nyt.getAllCategories[i]))),
               ],
             ),
           ),

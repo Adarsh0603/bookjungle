@@ -36,7 +36,7 @@ class _CategoryItemState extends State<CategoryItem> {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
-          left: 16, bottom: MediaQuery.of(context).size.height * 0.25),
+          left: 16, bottom: MediaQuery.of(context).size.height * 0.09 * 1.4),
       child: GestureDetector(
         onTap: navigateToSpecificSearchScreen,
         child: Card(
@@ -49,8 +49,8 @@ class _CategoryItemState extends State<CategoryItem> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Container(
-                  width: 48,
-                  height: 48,
+                  width: 36,
+                  height: 36,
                   child: Image.asset(
                     widget.category.iconLink,
                     scale: 1.0,

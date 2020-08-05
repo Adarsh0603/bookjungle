@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:math';
 
 import 'package:books_app/constants.dart';
 import 'package:books_app/models/book.dart';
@@ -8,16 +9,16 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-class BestSellerCategoryItem extends StatefulWidget {
+class BestSellerCategoryCard extends StatefulWidget {
   final Category category;
 
-  BestSellerCategoryItem(this.category);
+  BestSellerCategoryCard(this.category);
 
   @override
-  _BestSellerCategoryItemState createState() => _BestSellerCategoryItemState();
+  _BestSellerCategoryCardState createState() => _BestSellerCategoryCardState();
 }
 
-class _BestSellerCategoryItemState extends State<BestSellerCategoryItem> {
+class _BestSellerCategoryCardState extends State<BestSellerCategoryCard> {
   double elevation = 0;
   List<Book> _bestsellersForSelectedCategory = [];
 
@@ -49,7 +50,7 @@ class _BestSellerCategoryItemState extends State<BestSellerCategoryItem> {
   bool open = false;
   @override
   Widget build(BuildContext context) {
-    final openHeight = MediaQuery.of(context).size.height * 0.3;
+    final openHeight = min(MediaQuery.of(context).size.height * 0.4, 300);
 
     return GestureDetector(
       onTap: () async {
@@ -88,14 +89,14 @@ class _BestSellerCategoryItemState extends State<BestSellerCategoryItem> {
                         AsyncSnapshot<dynamic> snapshot) {
                       return snapshot.connectionState == ConnectionState.waiting
                           ? Container(
-                              color: kBestSellerCategoryItemColor,
+                              color: kBestSellerCategoryCardColor,
                               height: openHeight,
                               child: Center(child: CircularProgressIndicator())
 //                                  Image.asset('images/bookLoader3.gif'),
                               )
                           : snapshot.hasError
                               ? Container(
-                                  color: kBestSellerCategoryItemColor,
+                                  color: kBestSellerCategoryCardColor,
                                   height: openHeight,
                                   child: Center(
                                     child: Text(
@@ -107,12 +108,12 @@ class _BestSellerCategoryItemState extends State<BestSellerCategoryItem> {
                                       vertical: openHeight * 0.1,
                                       horizontal: 0.0),
                                   height: openHeight,
-                                  color: kBestSellerCategoryItemColor,
+                                  color: kBestSellerCategoryCardColor,
                                   child: ListView.builder(
                                       scrollDirection: Axis.horizontal,
                                       itemExtent:
                                           MediaQuery.of(context).size.height *
-                                              0.18,
+                                              0.17,
                                       itemCount: _bestsellersForSelectedCategory
                                           .length,
                                       itemBuilder: (context, i) {

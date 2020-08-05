@@ -23,7 +23,7 @@ class CategoriesSection extends StatelessWidget {
             ),
           ),
           Container(
-            height: MediaQuery.of(context).size.height * 0.45,
+            height: MediaQuery.of(context).size.height * 0.30,
             child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemExtent: MediaQuery.of(context).size.height * 0.2,

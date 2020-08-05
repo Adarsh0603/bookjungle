@@ -64,8 +64,8 @@ class SavedBookItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Container(
-                      width: MediaQuery.of(context).size.height * 0.08,
-                      height: MediaQuery.of(context).size.height * 0.1,
+                      width: MediaQuery.of(context).size.height * 0.11,
+                      height: MediaQuery.of(context).size.height * 0.14,
                       child: Card(
                           elevation: 8,
                           shape: kRoundedCornersShape,

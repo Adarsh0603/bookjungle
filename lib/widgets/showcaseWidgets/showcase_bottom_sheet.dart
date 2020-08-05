@@ -88,7 +88,8 @@ class ShowcaseSearchBottomSheet extends StatelessWidget {
                             });
                       },
                       child: ClipRRect(
-                        borderRadius: BorderRadius.circular(15.0),
+                        borderRadius:
+                            BorderRadius.circular(kRoundedCornerRadius),
                         child: Image.network(
                           book.thumbnailUrl,
 //                  height: kBookImageHeight,

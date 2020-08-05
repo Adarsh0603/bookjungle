@@ -49,7 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       'bookJungle',
                       textAlign: TextAlign.start,
                       style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 42),
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 36),
                     ),
                   ),
                   SizedBox(height: 0.0),
