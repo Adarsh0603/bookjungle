@@ -1,7 +1,6 @@
 import 'package:books_app/constants.dart';
 import 'package:books_app/providers/nyt.dart';
 import 'package:books_app/widgets/categoriesWidgets/bestseller_category_item.dart';
-import 'package:books_app/widgets/navbar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

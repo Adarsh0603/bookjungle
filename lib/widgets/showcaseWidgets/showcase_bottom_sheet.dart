@@ -80,7 +80,6 @@ class ShowcaseSearchBottomSheet extends StatelessWidget {
                     shape: kRoundedCornersShape,
                     child: GestureDetector(
                       onTap: () {
-//                          Navigator.of(context).pop();
                         Navigator.of(context).pushNamed(
                             SpecificSearchScreen.routeName,
                             arguments: {
@@ -154,25 +153,34 @@ class ShowcaseSearchBottomSheet extends StatelessWidget {
                     ),
                   ],
                 ),
-                FlatButton(
-                  color: Colors.white,
-                  onPressed: () {
-                    Utils.launchURL(book.buyLink);
-                  },
-                  child: Row(
-                    children: <Widget>[
-                      SizedBox(
+                Row(
+                  children: <Widget>[
+                    GestureDetector(
+                      onTap: () {
+                        Utils.launchURL(book.buyLink);
+                      },
+                      child: SizedBox(
                         child: Image.asset('images/amazonicon.png'),
                         height: 32,
                         width: 32,
                       ),
-                      SizedBox(width: 5),
-                      Text(
-                        'BUY',
-                        style: TextStyle(fontSize: 16),
-                      )
-                    ],
-                  ),
+                    ),
+                    SizedBox(width: 20),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).pushNamed(
+                            SpecificSearchScreen.routeName,
+                            arguments: {
+                              'bookTitle': book.title,
+                              'bookAuthor': book.singleAuthor
+                            });
+                      },
+                      child: Icon(
+                        Icons.search,
+                        size: 28,
+                      ),
+                    )
+                  ],
                 ),
               ],
             )

@@ -19,7 +19,7 @@ const kSearchBarShape = RoundedRectangleBorder(
   ),
 );
 
-const kRoundedCornerRadius = 15.0;
+const kRoundedCornerRadius = 8.0;
 const kRoundedCornersShape = RoundedRectangleBorder(
   borderRadius: BorderRadius.all(
     Radius.circular(kRoundedCornerRadius),

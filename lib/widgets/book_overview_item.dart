@@ -38,7 +38,8 @@ class BookOverviewItem extends StatelessWidget {
                 shape: kRoundedCornersShape,
                 elevation: 4.0,
                 child: ClipRRect(
-                  borderRadius: BorderRadius.all(Radius.circular(8.0)),
+                  borderRadius:
+                      BorderRadius.all(Radius.circular(kRoundedCornerRadius)),
                   child: FadeInImage.memoryNetwork(
                     image: book.thumbnailUrl,
                     fit: BoxFit.cover,
@@ -50,7 +51,7 @@ class BookOverviewItem extends StatelessWidget {
           ),
           SizedBox(height: 4.0),
           Expanded(
-            flex: 2,
+            flex: 1,
             child: Text(
               book.title != null ? Utils.trimString(book.title, 18) : '---',
               textAlign: TextAlign.center,

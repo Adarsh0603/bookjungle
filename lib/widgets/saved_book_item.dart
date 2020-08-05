@@ -40,12 +40,12 @@ class SavedBookItem extends StatelessWidget {
           key: ValueKey(savedBook.id),
           background: Container(
             alignment: AlignmentDirectional.centerEnd,
-            color: Colors.red,
+            color: Colors.grey[100],
             child: Padding(
               padding: const EdgeInsets.only(right: 16.0),
               child: Icon(
                 Icons.delete,
-                color: Colors.white,
+                color: Colors.black,
               ),
             ),
           ),
@@ -64,8 +64,8 @@ class SavedBookItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Container(
-                      width: 70,
-                      height: 90,
+                      width: MediaQuery.of(context).size.height * 0.08,
+                      height: MediaQuery.of(context).size.height * 0.1,
                       child: Card(
                           elevation: 8,
                           shape: kRoundedCornersShape,

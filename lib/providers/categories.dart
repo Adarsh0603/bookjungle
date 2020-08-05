@@ -6,7 +6,7 @@ class Categories with ChangeNotifier {
     Category(
         categoryTitle: 'Art & Literature',
         categoryLink: 'Art and Literature',
-        iconLink: 'images/art.png'),
+        iconLink: 'images/literature.png'),
     Category(
         categoryTitle: 'Biography /\n Autobiography',
         categoryLink: 'Biography Autobiography',

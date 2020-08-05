@@ -48,7 +48,7 @@ class NavbarButton extends StatelessWidget {
       child: Icon(
         icon,
         color: Colors.white,
-        size: 25,
+        size: 36,
       ),
       onTap: () {
         if (currentRoute == route) return;

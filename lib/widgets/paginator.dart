@@ -12,7 +12,8 @@ class Paginator extends StatelessWidget {
           elevation: 8.0,
           color: kPrimaryColor,
           child: Padding(
-            padding: const EdgeInsets.only(left: 16.0, right: 16.0),
+            padding: const EdgeInsets.only(
+                top: 8.0, left: 16.0, right: 16.0, bottom: 8.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[

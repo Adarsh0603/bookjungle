@@ -11,7 +11,7 @@ class CategoriesSection extends StatelessWidget {
   Widget build(BuildContext context) {
     final categories = Provider.of<Categories>(context);
     return Container(
-      padding: EdgeInsets.only(top: 20.0, left: 8.0, bottom: 50),
+      padding: EdgeInsets.only(top: 20.0, bottom: 0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -23,23 +23,13 @@ class CategoriesSection extends StatelessWidget {
             ),
           ),
           Container(
-            height: min(MediaQuery.of(context).size.height * 0.25, 200),
-//            height: MediaQuery.of(context).size.height * 0.8,  for grid view
-            child: Padding(
-              padding:
-                  const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
-              child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemExtent: MediaQuery.of(context).size.height * 0.2,
-//                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-//                      crossAxisCount: 3,
-//                      mainAxisSpacing: 5.0,
-//                      crossAxisSpacing: 5.0,
-//                      childAspectRatio: 5 / 7),
-                  itemCount: categories.categoriesList.length,
-                  itemBuilder: (context, i) =>
-                      CategoryItem(categories.categoriesList[i])),
-            ),
+            height: MediaQuery.of(context).size.height * 0.45,
+            child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemExtent: MediaQuery.of(context).size.height * 0.2,
+                itemCount: categories.categoriesList.length,
+                itemBuilder: (context, i) =>
+                    CategoryItem(categories.categoriesList[i])),
           ),
           SizedBox(
             height: 10,

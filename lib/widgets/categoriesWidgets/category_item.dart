@@ -35,7 +35,8 @@ class _CategoryItemState extends State<CategoryItem> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 5),
+      padding: EdgeInsets.only(
+          left: 16, bottom: MediaQuery.of(context).size.height * 0.25),
       child: GestureDetector(
         onTap: navigateToSpecificSearchScreen,
         child: Card(
@@ -48,8 +49,8 @@ class _CategoryItemState extends State<CategoryItem> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Container(
-                  width: 36,
-                  height: 36,
+                  width: 48,
+                  height: 48,
                   child: Image.asset(
                     widget.category.iconLink,
                     scale: 1.0,
@@ -64,7 +65,7 @@ class _CategoryItemState extends State<CategoryItem> {
                     softWrap: true,
                     style: TextStyle(
                         fontWeight: FontWeight.w500,
-                        fontSize: 14.0,
+                        fontSize: 16.0,
                         color: Colors.green),
                   ),
                 ),

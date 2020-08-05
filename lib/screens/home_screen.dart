@@ -21,10 +21,10 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Future<void> getBooksData() async {
-    if (!Provider.of<NYT>(context, listen: false).isLoaded) {
-      await Provider.of<NYT>(context, listen: false).getCategoryList();
-      Provider.of<NYT>(context, listen: false).setLoading(true);
-    }
+//    if (!Provider.of<NYT>(context, listen: false).isLoaded) {
+    await Provider.of<NYT>(context, listen: false).getCategoryList();
+//      Provider.of<NYT>(context, listen: false).setLoading(true);
+//    }
   }
 
   @override
@@ -37,21 +37,27 @@ class _HomeScreenState extends State<HomeScreen> {
           onRefresh: () async {
             await getBooksData();
           },
-          child: ListView(
-            children: <Widget>[
-              //TODO:AppTitle Here
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Text(
-                  'bookJungle',
-                  textAlign: TextAlign.start,
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
-                ),
+          child: SingleChildScrollView(
+            child: Container(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  //TODO:AppTitle Here
+                  Padding(
+                    padding: const EdgeInsets.all(22.0),
+                    child: Text(
+                      'bookJungle',
+                      textAlign: TextAlign.start,
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 42),
+                    ),
+                  ),
+                  SizedBox(height: 0.0),
+                  Showcase(),
+                  CategoriesSection(),
+                ],
               ),
-              SizedBox(height: 0.0),
-              Showcase(),
-              CategoriesSection(),
-            ],
+            ),
           ),
         ),
       ),

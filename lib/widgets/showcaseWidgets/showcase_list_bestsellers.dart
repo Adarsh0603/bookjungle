@@ -17,7 +17,7 @@ class ShowcaseList extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Padding(
-                  padding: const EdgeInsets.only(top: 12.0, left: 16.0),
+                  padding: const EdgeInsets.only(top: 16.0, left: 16.0),
                   child: Text(
                     nyt.getSelectedCategory,
                     style: TextStyle(

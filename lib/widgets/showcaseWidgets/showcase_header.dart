@@ -23,12 +23,18 @@ class ShowcaseHeader extends StatelessWidget {
                   onTap: () {
                     Navigator.of(context).pushNamed(NYTScreen.routeName);
                   },
-                  child: Text(
-                    'see all',
-                    style: TextStyle(
-                        fontSize: 14.0,
-                        color: kLightColor,
-                        fontWeight: FontWeight.bold),
+                  child: SizedBox(
+                    width: 70.0,
+                    height: 35,
+                    child: Center(
+                      child: Text(
+                        'see all',
+                        style: TextStyle(
+                            fontSize: 14.0,
+                            color: kLightColor,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
                   ),
                 )
               ],

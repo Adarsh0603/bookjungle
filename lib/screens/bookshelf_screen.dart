@@ -33,12 +33,12 @@ class _BookShelfScreenState extends State<BookShelfScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Padding(
-                      padding: const EdgeInsets.only(left: 16.0),
+                      padding: const EdgeInsets.all(16.0),
                       child: Text(
                         'Bookshelf',
                         textAlign: TextAlign.start,
                         style: TextStyle(
-                            fontSize: 22, fontWeight: FontWeight.bold),
+                            fontSize: 26, fontWeight: FontWeight.bold),
                       ),
                     ),
                     Divider(),
