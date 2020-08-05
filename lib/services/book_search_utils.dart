@@ -7,12 +7,9 @@ import 'package:http/http.dart';
 class BookSearchUtils {
   static Future<Book> fetchBookById(String id) async {
     final url = 'https://www.googleapis.com/books/v1/volumes/$id';
-    try {
-      Response response = await get(url);
-      var bookMap = await jsonDecode(response.body);
-      return Utils.bookFromJson(bookMap);
-    } catch (e) {
-      print(e);
-    }
+
+    Response response = await get(url);
+    var bookMap = await jsonDecode(response.body);
+    return Utils.bookFromJson(bookMap);
   }
 }

@@ -1,10 +1,9 @@
-import 'dart:math';
-
 import 'package:books_app/constants.dart';
 import 'package:books_app/models/book.dart';
 import 'package:books_app/services/utils.dart';
 import 'package:books_app/widgets/showcaseWidgets/showcase_bottom_sheet.dart';
 import 'package:flutter/material.dart';
+import 'package:transparent_image/transparent_image.dart';
 
 class ShowcaseBookItem extends StatelessWidget {
   final Book book;
@@ -38,8 +37,9 @@ class ShowcaseBookItem extends StatelessWidget {
                 elevation: 4.0,
                 child: ClipRRect(
                   borderRadius: BorderRadius.all(Radius.circular(8.0)),
-                  child: Image.network(
-                    book.thumbnailUrl,
+                  child: FadeInImage.memoryNetwork(
+                    image: book.thumbnailUrl,
+                    placeholder: kTransparentImage,
                     fit: BoxFit.cover,
                   ),
                 ),

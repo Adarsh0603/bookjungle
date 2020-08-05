@@ -1,19 +1,29 @@
 import 'package:books_app/providers/books.dart';
+import 'package:books_app/screens/search_screen.dart';
 import 'package:books_app/widgets/book_overview_item.dart';
 import 'package:books_app/widgets/paginator.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class BooksGrid extends StatelessWidget {
+  final String routeName;
+  BooksGrid({this.routeName});
+
   @override
   Widget build(BuildContext context) {
+    bool loading;
+
     return Expanded(
       child: Padding(
         padding: const EdgeInsets.only(top: 8.0),
-        child: Consumer<Books>(
-          builder: (BuildContext context, books, _) => Column(
+        child: Consumer<Books>(builder: (BuildContext context, books, _) {
+          if (routeName != SearchScreen.routeName) {
+            loading = books.specificScreenLoadingState;
+          } else
+            loading = books.isLoading;
+          return Column(
             children: <Widget>[
-              books.isLoading
+              loading
                   ? Expanded(child: Center(child: CircularProgressIndicator()))
                   : books.reachedEnd
                       ? Expanded(child: Center(child: Text('No More Books')))
@@ -41,8 +51,8 @@ class BooksGrid extends StatelessWidget {
 
               //this is a category branch comment
             ],
-          ),
-        ),
+          );
+        }),
       ),
     );
   }

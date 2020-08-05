@@ -55,6 +55,14 @@ class Books extends ChangeNotifier {
     return _reachedEnd;
   }
 
+  bool _specificScreenLoadingState = false;
+  void setSpecificScreenLoadingState(bool value) {
+    _specificScreenLoadingState = value;
+    notifyListeners();
+  }
+
+  bool get specificScreenLoadingState => _specificScreenLoadingState;
+
   Future<void> getSearchedBookData(String bookName) async {
     calledBy = PaginatorCall.byTitle;
     _searchedBooksList.clear();
@@ -106,6 +114,7 @@ class Books extends ChangeNotifier {
       _reachedEnd = false;
       http.Response response = await http.get(url);
       var jsonResponse = await jsonDecode(response.body);
+      setSpecificScreenLoadingState(false);
       if (_firstLoad) totalItems = jsonResponse['totalItems'];
 
       List searchedBooksJson = jsonResponse['items'];

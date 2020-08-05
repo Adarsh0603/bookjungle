@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:books_app/providers/categories.dart';
 import 'package:books_app/widgets/categoriesWidgets/category_item.dart';
 import 'package:flutter/cupertino.dart';

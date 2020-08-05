@@ -59,7 +59,7 @@ class Utils {
           : volumeInfo['averageRating'].toString(),
       thumbnailUrl: volumeInfo['imageLinks'] != null
           ? '${volumeInfo['imageLinks']['thumbnail']}'
-          : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRE4glr5iexnuyZi1nyYWPa71jISKh1OLU9ez1yGWdCtC3OweM&s',
+          : 'https://www.wildhareboca.com/wp-content/uploads/sites/310/2018/03/image-not-available.jpg',
       previewLink: volumeInfo['previewLink'],
       infoLink: volumeInfo['infoLink'],
       buyLink: saleInfo['buyLink'],
@@ -76,3 +76,4 @@ class Utils {
     );
   }
 }
+//https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRE4glr5iexnuyZi1nyYWPa71jISKh1OLU9ez1yGWdCtC3OweM&s

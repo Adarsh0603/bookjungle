@@ -29,7 +29,7 @@ class Paginator extends StatelessWidget {
                       ? null
                       : () {
                           books.paginate(false);
-                          print(books.startIndex);
+                          books.setSpecificScreenLoadingState(true);
                         },
                 ),
                 IconButton(
@@ -39,6 +39,7 @@ class Paginator extends StatelessWidget {
                   onPressed: (books.startIndex <= books.totalBookCount - 18)
                       ? () {
                           books.paginate(true);
+                          books.setSpecificScreenLoadingState(true);
                         }
                       : null,
                 ),

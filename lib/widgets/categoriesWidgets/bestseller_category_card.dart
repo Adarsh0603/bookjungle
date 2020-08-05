@@ -50,7 +50,7 @@ class _BestSellerCategoryCardState extends State<BestSellerCategoryCard> {
   bool open = false;
   @override
   Widget build(BuildContext context) {
-    final openHeight = min(MediaQuery.of(context).size.height * 0.4, 300);
+    final openHeight = min(MediaQuery.of(context).size.height * 0.4, 400.0);
 
     return GestureDetector(
       onTap: () async {

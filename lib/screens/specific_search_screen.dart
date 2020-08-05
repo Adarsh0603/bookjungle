@@ -76,7 +76,7 @@ class SpecificSearchScreen extends StatelessWidget {
                     Provider.of<Books>(context, listen: false)
                         .toggleTotalItemsCalculation(false);
 
-                    return BooksGrid();
+                    return BooksGrid(routeName: SpecificSearchScreen.routeName);
                   }
                 },
               ),
