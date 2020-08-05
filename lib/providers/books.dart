@@ -148,4 +148,9 @@ class Books extends ChangeNotifier {
   Book getBookById(String id) {
     return _searchedBooksList.firstWhere((element) => (element.id == id));
   }
+
+  void clearList() {
+    _searchedBooksList.clear();
+    notifyListeners();
+  }
 }

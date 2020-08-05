@@ -36,7 +36,7 @@ class NavBar extends StatelessWidget {
   }
 }
 
-class NavbarButton extends StatefulWidget {
+class NavbarButton extends StatelessWidget {
   final IconData icon;
   final String route;
   final String currentRoute;
@@ -44,18 +44,13 @@ class NavbarButton extends StatefulWidget {
   NavbarButton(this.icon, this.route, this.currentRoute);
 
   @override
-  _NavbarButtonState createState() => _NavbarButtonState();
-}
-
-class _NavbarButtonState extends State<NavbarButton> {
-  @override
   Widget build(BuildContext context) {
     return IconButton(
-      icon: Icon(widget.icon),
+      icon: Icon(icon),
       color: Colors.white,
       onPressed: () {
-        if (widget.currentRoute == widget.route) return;
-        Navigator.of(context).pushReplacementNamed(widget.route);
+        if (currentRoute == route) return;
+        Navigator.of(context).pushReplacementNamed(route);
       },
     );
   }

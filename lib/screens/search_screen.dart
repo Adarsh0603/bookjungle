@@ -1,8 +1,10 @@
 import 'package:books_app/constants.dart';
+import 'package:books_app/providers/books.dart';
 import 'package:books_app/widgets/books_grid.dart';
 import 'package:books_app/widgets/navbar.dart';
 import 'package:books_app/widgets/search_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class SearchScreen extends StatefulWidget {
   static const routeName = '/search-screen';
@@ -12,6 +14,19 @@ class SearchScreen extends StatefulWidget {
 }
 
 class _SearchScreenState extends State<SearchScreen> {
+  bool loadGrid = false;
+  @override
+  void didChangeDependencies() {
+    // TODO: implement didChangeDependencies
+    Future.delayed(Duration.zero).then((_) {
+      Provider.of<Books>(context, listen: false).clearList();
+
+      setState(() {
+        loadGrid = true;
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,7 +50,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 ],
               ),
             ),
-            BooksGrid(),
+            if (loadGrid) BooksGrid(),
             SizedBox(height: 80),
           ],
         ),

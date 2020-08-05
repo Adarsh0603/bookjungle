@@ -44,6 +44,12 @@ class SearchBar extends StatelessWidget {
                 },
               ),
             ),
+            Expanded(
+              child: GestureDetector(
+                onTap: () {},
+                child: Container(child: Icon(Icons.youtube_searched_for)),
+              ),
+            )
           ],
         ),
       ),
