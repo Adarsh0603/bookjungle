@@ -1,17 +1,22 @@
 import 'dart:convert';
 import 'dart:math';
 import 'package:books_app/models/book.dart';
+import 'package:books_app/models/category.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
 
 class NYT with ChangeNotifier {
   bool _loaded = false;
-  List<String> _categories = [];
+  List<Category> _categories = [];
   List<Book> _bestSellers = [];
   String _selectedCategory = '';
 
   bool get isLoaded {
     return _loaded;
+  }
+
+  List<Category> get getAllCategories {
+    return [..._categories];
   }
 
   void setLoading(bool loadingState) {
@@ -36,13 +41,19 @@ class NYT with ChangeNotifier {
       var jsonResponse = await jsonDecode(response.body);
       List categoriesJsonList = jsonResponse['results'];
 
-      List<String> categories = [];
+      List<Category> categories = [];
       categoriesJsonList.forEach((category) {
-        categories.add(category['list_name_encoded'].toString());
+        categories.add(Category(
+          categoryLink: category['list_name_encoded'],
+          categoryTitle: category['display_name'],
+          oldDate: category['oldest_published_date'],
+          newDate: category['newest_published_date'],
+          updated: category['updated'],
+        ));
       });
       _categories = categories;
       int randomIndex = Random().nextInt(_categories.length);
-      String bestSellerRandomCategory = _categories[randomIndex];
+      String bestSellerRandomCategory = _categories[randomIndex].categoryLink;
       await getBestsellers(bestSellerRandomCategory);
     } catch (e) {
       print(e);
