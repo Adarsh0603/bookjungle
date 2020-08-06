@@ -3,6 +3,7 @@ import 'package:books_app/models/book.dart';
 import 'package:books_app/services/utils.dart';
 import 'package:books_app/widgets/showcaseWidgets/showcase_bottom_sheet.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:transparent_image/transparent_image.dart';
 
 class ShowcaseBookItem extends StatelessWidget {
@@ -59,7 +60,9 @@ class ShowcaseBookItem extends StatelessWidget {
               child: Text(
                 Utils.trimString(book.title, 15),
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 14.0, fontWeight: FontWeight.bold),
+                style: GoogleFonts.openSans(
+                    textStyle:
+                        TextStyle(fontSize: 14.0, fontWeight: FontWeight.bold)),
               ),
             )
           ],

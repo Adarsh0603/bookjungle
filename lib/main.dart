@@ -9,6 +9,7 @@ import 'package:books_app/screens/search_screen.dart';
 import 'package:books_app/screens/specific_search_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 void main() {

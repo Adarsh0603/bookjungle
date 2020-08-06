@@ -9,7 +9,6 @@ import 'package:books_app/widgets/showcaseWidgets/showcase.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:connectivity/connectivity.dart';
 
 class HomeScreen extends StatefulWidget {
   static const routeName = '/home';
@@ -22,7 +21,6 @@ class _HomeScreenState extends State<HomeScreen> {
   void didChangeDependencies() {
     // TODO: implement didChangeDependencies
     super.didChangeDependencies();
-
     getBooksData();
   }
 
@@ -42,19 +40,23 @@ class _HomeScreenState extends State<HomeScreen> {
         onRefresh: () async {
           await getBooksData();
         },
-        child: SingleChildScrollView(
-          child: Container(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                //TODO:AppTitle Here
-                AppTitle(),
-                SizedBox(height: 10.0),
-                Showcase(),
-                Container(child: CategoriesSection()),
-              ],
+        child: Column(
+          children: <Widget>[
+            AppTitle(),
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    //TODO:AppTitle Here
+                    SizedBox(height: 40.0),
+                    Showcase(),
+                    Container(child: CategoriesSection()),
+                  ],
+                ),
+              ),
             ),
-          ),
+          ],
         ),
       ),
     );

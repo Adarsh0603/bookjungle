@@ -37,7 +37,7 @@ dependencies:
   path_provider: ^1.6.11
   path: ^1.6.4
   connectivity: ^0.4.9
-
+  google_fonts: ^1.1.0
 dev_dependencies:
   flutter_test:
     sdk: flutter

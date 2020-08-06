@@ -4,6 +4,7 @@ import 'package:books_app/widgets/books_grid.dart';
 import 'package:books_app/widgets/navbar.dart';
 import 'package:books_app/widgets/search_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class SearchScreen extends StatefulWidget {
@@ -37,33 +38,43 @@ class _SearchScreenState extends State<SearchScreen> {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Container(
-                height: 100,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                    image: DecorationImage(
-                        image: AssetImage("images/bg.png"), fit: BoxFit.cover)),
+              Material(
+                elevation: 2,
                 child: Container(
-                  color: Colors.black38,
-                  child: Padding(
-                    padding: const EdgeInsets.only(
-                        top: 32.0, left: 16.0, right: 16.0, bottom: 2.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text(
-                          'Discover',
-                          style: kSearchScreenHeaderStyle,
+                  height: 150,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage("images/bg.png"),
+                          fit: BoxFit.cover)),
+                  child: Container(
+                    color: Colors.black38,
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                          top: 32.0, left: 16.0, right: 16.0, bottom: 2.0),
+                      child: SafeArea(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text(
+                              'Discover',
+                              style: kSearchScreenHeaderStyle,
+                            ),
+                            Container(
+                              width: MediaQuery.of(context).size.width * 0.6,
+                              child: Text(
+                                'Search books based on your needs with book title or author name',
+                                style: GoogleFonts.notoSans(
+                                    textStyle: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 12.0,
+                                  letterSpacing: 0.2,
+                                )),
+                              ),
+                            ),
+                          ],
                         ),
-                        Container(
-                          width: MediaQuery.of(context).size.width * 0.7,
-                          child: Text(
-                            'Search books based on your needs with book title or author name',
-                            style:
-                                TextStyle(fontSize: 12.0, color: Colors.white),
-                          ),
-                        ),
-                      ],
+                      ),
                     ),
                   ),
                 ),

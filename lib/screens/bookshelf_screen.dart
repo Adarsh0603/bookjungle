@@ -29,28 +29,34 @@ class _BookShelfScreenState extends State<BookShelfScreen> {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Container(
-                  height: 100,
-                  decoration: BoxDecoration(
-                      image: DecorationImage(
-                          image: AssetImage("images/bg.png"),
-                          fit: BoxFit.cover)),
+                Material(
+                  elevation: 2,
                   child: Container(
-                    color: Colors.black38,
-                    child: Padding(
-                      padding: const EdgeInsets.only(
-                          top: 16.0, bottom: 0, left: 16.0),
-                      child: Row(
-                        children: <Widget>[
-                          Text(
-                            'Bookshelf',
-                            textAlign: TextAlign.start,
-                            style: TextStyle(
-                                fontSize: 26,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white),
+                    height: 150,
+                    decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage("images/bg.png"),
+                            fit: BoxFit.cover)),
+                    child: Container(
+                      color: Colors.black38,
+                      child: SafeArea(
+                        child: Padding(
+                          padding: const EdgeInsets.only(
+                              top: 16.0, bottom: 0, left: 16.0, right: 16),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: <Widget>[
+                              Text(
+                                'Bookshelf',
+                                textAlign: TextAlign.end,
+                                style: TextStyle(
+                                    fontSize: 36,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white),
+                              ),
+                            ],
                           ),
-                        ],
+                        ),
                       ),
                     ),
                   ),

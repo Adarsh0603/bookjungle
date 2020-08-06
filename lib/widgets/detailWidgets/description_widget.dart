@@ -1,6 +1,7 @@
 import 'package:books_app/models/book.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class DescriptionWidget extends StatelessWidget {
   final Book book;
@@ -13,10 +14,7 @@ class DescriptionWidget extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.all(8.0),
         decoration: BoxDecoration(
-          color: Color(0xfff2f3f4),
-          borderRadius: BorderRadius.all(
-            Radius.circular(8.0),
-          ),
+          color: Colors.grey[50],
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -37,7 +35,11 @@ class DescriptionWidget extends StatelessWidget {
                 child: SingleChildScrollView(
                     child: Text(
                   book.description,
-                  style: TextStyle(fontSize: 17.0),
+                  style: GoogleFonts.notoSans(
+                      textStyle: TextStyle(
+                    fontSize: 14.0,
+                    letterSpacing: 0.2,
+                  )),
                 )),
               ),
             ),

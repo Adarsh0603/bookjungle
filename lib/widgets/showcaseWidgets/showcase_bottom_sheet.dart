@@ -4,6 +4,7 @@ import 'package:books_app/screens/specific_search_screen.dart';
 import 'package:books_app/services/utils.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class ShowcaseSearchBottomSheet extends StatelessWidget {
   final Book book;
@@ -124,7 +125,11 @@ class ShowcaseSearchBottomSheet extends StatelessWidget {
                           book.description == ''
                               ? 'Not Available'
                               : book.description,
-                          style: TextStyle(fontSize: 17.0),
+                          style: GoogleFonts.notoSans(
+                              textStyle: TextStyle(
+                            fontSize: 14.0,
+                            letterSpacing: 0.2,
+                          )),
                         ),
                       ),
                     ),

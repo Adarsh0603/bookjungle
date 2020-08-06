@@ -2,6 +2,7 @@ import 'package:books_app/constants.dart';
 import 'package:books_app/models/category.dart';
 import 'package:books_app/screens/specific_search_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class CategoryItem extends StatefulWidget {
   final Category category;
@@ -63,10 +64,13 @@ class _CategoryItemState extends State<CategoryItem> {
                     widget.category.categoryTitle,
                     textAlign: TextAlign.center,
                     softWrap: true,
-                    style: TextStyle(
-                        fontWeight: FontWeight.w500,
-                        fontSize: 16.0,
-                        color: Colors.green),
+                    style: GoogleFonts.notoSans(
+                        textStyle: TextStyle(
+                      fontSize: 14.0,
+                      fontWeight: FontWeight.bold,
+                      color: kPrimaryColor,
+                      letterSpacing: 0.2,
+                    )),
                   ),
                 ),
               ],

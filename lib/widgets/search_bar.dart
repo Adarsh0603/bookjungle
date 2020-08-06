@@ -55,7 +55,8 @@ class _SearchBarState extends State<SearchBar> {
               child: TextField(
                 autofocus: true,
                 cursorColor: kSearchBarHintColor,
-                decoration: kSearchBarDecoration,
+                decoration: kSearchBarDecoration.copyWith(
+                    hintText: byTitle ? 'Search by title' : 'Search by author'),
                 textInputAction: TextInputAction.search,
                 onChanged: (value) {
                   searchString = value;
@@ -70,8 +71,8 @@ class _SearchBarState extends State<SearchBar> {
               child: GestureDetector(
                 onTap: () {
                   FocusScope.of(context).unfocus();
-
-                  if (searchString != null) search();
+                  if (searchString.length == 0) return;
+                  search();
                 },
                 child: Icon(
                   Icons.search,

@@ -1,4 +1,3 @@
-import 'package:books_app/constants.dart';
 import 'package:books_app/providers/nyt.dart';
 import 'package:books_app/widgets/categoriesWidgets/bestseller_category_card.dart';
 import 'package:flutter/cupertino.dart';
@@ -20,7 +19,7 @@ class BestSellersScreen extends StatelessWidget {
               Material(
                 elevation: 2,
                 child: Container(
-                  height: 100,
+                  height: 150,
                   decoration: BoxDecoration(
                       image: DecorationImage(
                           image: AssetImage("images/bg.png"),
@@ -46,6 +45,7 @@ class BestSellersScreen extends StatelessWidget {
                             padding: const EdgeInsets.only(right: 16.0),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.end,
+                              mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
                                 Text(
                                   'New York Times',

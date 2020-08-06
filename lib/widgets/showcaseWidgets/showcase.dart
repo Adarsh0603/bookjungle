@@ -40,12 +40,18 @@ class _ShowcaseState extends State<Showcase> {
   }
 
   @override
+  void dispose() {
+    subscription.cancel();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Container(
       child: Card(
         elevation: 18.0,
         shadowColor: Colors.white,
-        margin: EdgeInsets.only(right: 0, left: 20),
+        margin: EdgeInsets.only(right: 0, left: 16),
         shape: kBestsellersShowcaseStyle,
         child: Padding(
           padding: const EdgeInsets.only(left: 18.0),

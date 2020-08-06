@@ -7,6 +7,7 @@ import 'package:books_app/models/category.dart';
 import 'package:books_app/widgets/showcaseWidgets/showcase_book_item.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 
 class BestSellerCategoryCard extends StatefulWidget {
@@ -79,8 +80,10 @@ class _BestSellerCategoryCardState extends State<BestSellerCategoryCard> {
                   padding: const EdgeInsets.only(left: 16.0),
                   child: Text(
                     widget.category.categoryTitle,
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold, fontSize: open ? 32 : 16),
+                    style: GoogleFonts.montserrat(
+                        textStyle: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: open ? 28 : 16)),
                   ),
                 ),
                 SizedBox(height: 5),

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 //--------Colors-----//
 const kLightColor = Colors.teal;
@@ -28,7 +29,7 @@ const kRoundedCornersShape = RoundedRectangleBorder(
 
 const kSearchBarDecoration = InputDecoration(
     contentPadding: EdgeInsets.symmetric(horizontal: 2.0, vertical: 4.0),
-    hintText: 'Search by name, author',
+    hintText: 'Search book',
     hintStyle: TextStyle(
       color: kSearchBarHintColor,
     ),
@@ -53,8 +54,6 @@ const kBestsellersShowcaseStyle = RoundedRectangleBorder(
     bottomLeft: Radius.circular(kBestsellerShowcaseRadius),
   ),
 );
-const kShowcaseHeaderTextStyle =
-    TextStyle(fontWeight: FontWeight.bold, fontSize: 22.0);
 
 const kCategoryItemShape = RoundedRectangleBorder(
   borderRadius: BorderRadius.all(

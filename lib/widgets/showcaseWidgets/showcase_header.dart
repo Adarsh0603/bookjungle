@@ -1,6 +1,7 @@
 import 'package:books_app/constants.dart';
 import 'package:books_app/screens/bestsellers_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class ShowcaseHeader extends StatelessWidget {
   @override
@@ -15,9 +16,13 @@ class ShowcaseHeader extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                Text(
-                  'Discover Bestsellers',
-                  style: kShowcaseHeaderTextStyle,
+                Expanded(
+                  child: Text(
+                    'Discover Bestsellers',
+                    style: GoogleFonts.montserrat(
+                        textStyle: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 22.0)),
+                  ),
                 ),
                 GestureDetector(
                   onTap: () {
@@ -28,13 +33,12 @@ class ShowcaseHeader extends StatelessWidget {
                     width: 70.0,
                     height: 35,
                     child: Center(
-                      child: Text(
-                        'see all',
-                        style: TextStyle(
+                      child: Text('see all',
+                          style: GoogleFonts.montserrat(
+                              textStyle: TextStyle(
                             fontSize: 14.0,
                             color: kLightColor,
-                            fontWeight: FontWeight.bold),
-                      ),
+                          ))),
                     ),
                   ),
                 )
@@ -43,7 +47,11 @@ class ShowcaseHeader extends StatelessWidget {
           ),
           Text(
             'Weekly list of New York Times bestsellers \nfrom different categories..',
-            style: TextStyle(fontSize: 12.0, color: kLightColor),
+            style: GoogleFonts.notoSans(
+                textStyle: TextStyle(
+              fontSize: 10.0,
+              letterSpacing: 0.2,
+            )),
           ),
         ],
       ),

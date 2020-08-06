@@ -16,72 +16,88 @@ class SpecificSearchScreen extends StatelessWidget {
     Provider.of<Books>(context, listen: false)
         .toggleTotalItemsCalculation(true);
     return Scaffold(
-      body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.only(right: 16.0, top: 16.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.only(left: 16.0),
-                    child: GestureDetector(
-                      child: Icon(Icons.arrow_back),
-                      onTap: () {
-                        Navigator.of(context).pop();
-                      },
-                    ),
-                  ),
-                  SizedBox(width: 20),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: <Widget>[
-                        Text(
-                          searchArgs['categoryTitle'] != null
-                              ? 'CATEGORY'
-                              : 'Search results for:',
-                          style: TextStyle(color: kLightColor, fontSize: 12),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Material(
+            elevation: 2,
+            child: Container(
+              height: 150,
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage("images/bg.png"), fit: BoxFit.cover)),
+              child: Container(
+                color: Colors.black38,
+                child: Padding(
+                  padding: const EdgeInsets.only(right: 16.0, top: 16.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.only(left: 16.0),
+                        child: GestureDetector(
+                          child: Icon(
+                            Icons.arrow_back,
+                            color: Colors.white,
+                          ),
+                          onTap: () {
+                            Navigator.of(context).pop();
+                          },
                         ),
-                        SizedBox(height: 2.0),
-                        Text(
-                          searchArgs['bookTitle'] != null
-                              ? searchArgs['bookTitle']
-                              : searchArgs['categoryTitle'],
-                          softWrap: true,
-                          textAlign: TextAlign.end,
-                          style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.bold),
+                      ),
+                      SizedBox(width: 20),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Text(
+                              searchArgs['categoryTitle'] != null
+                                  ? 'CATEGORY'
+                                  : 'Search results for:',
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 12),
+                            ),
+                            SizedBox(height: 2.0),
+                            Text(
+                              searchArgs['bookTitle'] != null
+                                  ? searchArgs['bookTitle']
+                                  : searchArgs['categoryTitle'],
+                              softWrap: true,
+                              textAlign: TextAlign.end,
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ],
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                ],
+                ),
               ),
             ),
-            Divider(),
-            FutureBuilder(
-              future: Provider.of<Books>(context, listen: false)
-                  .getSearchedBookByArgs(searchArgs),
-              builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
-                if (snapshot.connectionState == ConnectionState.waiting) {
-                  return Expanded(
-                    child: Center(
-                      child: CircularProgressIndicator(),
-                    ),
-                  );
-                } else {
-                  Provider.of<Books>(context, listen: false)
-                      .toggleTotalItemsCalculation(false);
+          ),
+          FutureBuilder(
+            future: Provider.of<Books>(context, listen: false)
+                .getSearchedBookByArgs(searchArgs),
+            builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return Expanded(
+                  child: Center(
+                    child: CircularProgressIndicator(),
+                  ),
+                );
+              } else {
+                Provider.of<Books>(context, listen: false)
+                    .toggleTotalItemsCalculation(false);
 
-                  return BooksGrid(routeName: SpecificSearchScreen.routeName);
-                }
-              },
-            ),
-          ],
-        ),
+                return BooksGrid(routeName: SpecificSearchScreen.routeName);
+              }
+            },
+          ),
+        ],
       ),
     );
   }
