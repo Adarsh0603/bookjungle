@@ -23,6 +23,10 @@ class BooksGrid extends StatelessWidget {
             loading = books.isLoading;
           return Column(
             children: <Widget>[
+              if (!books.firstLoad)
+                Padding(
+                    padding: EdgeInsets.only(bottom: 4, left: 16, right: 16.0),
+                    child: Paginator()),
               loading
                   ? Expanded(child: Center(child: CircularProgressIndicator()))
                   : books.reachedEnd
@@ -46,8 +50,6 @@ class BooksGrid extends StatelessWidget {
                                 }),
                           ),
                         ),
-              if (!books.firstLoad)
-                Paginator(),
 
               //this is a category branch comment
             ],

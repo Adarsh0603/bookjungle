@@ -20,7 +20,6 @@ class _SearchScreenState extends State<SearchScreen> {
     // TODO: implement didChangeDependencies
     Future.delayed(Duration.zero).then((_) {
       Provider.of<Books>(context, listen: false).clearList();
-
       setState(() {
         loadGrid = true;
       });
@@ -30,7 +29,7 @@ class _SearchScreenState extends State<SearchScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       floatingActionButton: NavBar(SearchScreen.routeName),
       body: SafeArea(
         child: Column(
@@ -50,8 +49,10 @@ class _SearchScreenState extends State<SearchScreen> {
                 ],
               ),
             ),
-            if (loadGrid) BooksGrid(),
-            SizedBox(height: 80),
+            if (loadGrid)
+              BooksGrid(
+                routeName: SearchScreen.routeName,
+              ),
           ],
         ),
       ),

@@ -9,8 +9,10 @@ class Paginator extends StatelessWidget {
     return Consumer<Books>(
       builder: (BuildContext context, books, _) {
         return Card(
-          elevation: 8.0,
-          color: kPrimaryColor,
+          elevation: 01.0,
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(0))),
+          color: Colors.white,
           child: Padding(
             padding: const EdgeInsets.only(left: 16.0, right: 16.0),
             child: Row(
@@ -19,11 +21,11 @@ class Paginator extends StatelessWidget {
                 Text(
                   '${books.totalBookCount} books found',
                   style: TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.bold),
+                      color: kPrimaryColor, fontWeight: FontWeight.bold),
                 ),
                 Spacer(),
                 IconButton(
-                  color: Colors.white,
+                  color: kPrimaryColor,
                   icon: Icon(Icons.chevron_left),
                   onPressed: books.startIndex == 0
                       ? null
@@ -33,7 +35,7 @@ class Paginator extends StatelessWidget {
                         },
                 ),
                 IconButton(
-                  color: Colors.white,
+                  color: kPrimaryColor,
                   icon: Icon(Icons.chevron_right),
 //          !books.reachedEnd &&
                   onPressed: (books.startIndex <= books.totalBookCount - 18)

@@ -55,6 +55,11 @@ class Books extends ChangeNotifier {
     return _reachedEnd;
   }
 
+  void setFirstLoad(bool value) {
+    _firstLoad = value;
+    notifyListeners();
+  }
+
   bool _specificScreenLoadingState = false;
   void setSpecificScreenLoadingState(bool value) {
     _specificScreenLoadingState = value;
@@ -78,7 +83,10 @@ class Books extends ChangeNotifier {
       http.Response response = await http.get(url);
       setLoading(false);
       var jsonResponse = await jsonDecode(response.body);
-      if (_firstLoad) totalItems = jsonResponse['totalItems'];
+      if (_firstLoad) {
+        totalItems = jsonResponse['totalItems'];
+        setFirstLoad(false);
+      }
 
       List searchedBooksJson = jsonResponse['items'];
       if (searchedBooksJson == null) {

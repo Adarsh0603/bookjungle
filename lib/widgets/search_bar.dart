@@ -69,7 +69,9 @@ class _SearchBarState extends State<SearchBar> {
             Expanded(
               child: GestureDetector(
                 onTap: () {
-                  search();
+                  FocusScope.of(context).unfocus();
+
+                  if (searchString != null) search();
                 },
                 child: Icon(
                   Icons.search,

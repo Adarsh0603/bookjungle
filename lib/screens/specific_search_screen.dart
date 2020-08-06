@@ -17,12 +17,12 @@ class SpecificSearchScreen extends StatelessWidget {
         .toggleTotalItemsCalculation(true);
     return Scaffold(
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Row(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.only(right: 16.0, top: 16.0),
+              child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Padding(
@@ -60,28 +60,27 @@ class SpecificSearchScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              Divider(),
-              FutureBuilder(
-                future: Provider.of<Books>(context, listen: false)
-                    .getSearchedBookByArgs(searchArgs),
-                builder:
-                    (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
-                  if (snapshot.connectionState == ConnectionState.waiting) {
-                    return Expanded(
-                      child: Center(
-                        child: CircularProgressIndicator(),
-                      ),
-                    );
-                  } else {
-                    Provider.of<Books>(context, listen: false)
-                        .toggleTotalItemsCalculation(false);
+            ),
+            Divider(),
+            FutureBuilder(
+              future: Provider.of<Books>(context, listen: false)
+                  .getSearchedBookByArgs(searchArgs),
+              builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return Expanded(
+                    child: Center(
+                      child: CircularProgressIndicator(),
+                    ),
+                  );
+                } else {
+                  Provider.of<Books>(context, listen: false)
+                      .toggleTotalItemsCalculation(false);
 
-                    return BooksGrid(routeName: SpecificSearchScreen.routeName);
-                  }
-                },
-              ),
-            ],
-          ),
+                  return BooksGrid(routeName: SpecificSearchScreen.routeName);
+                }
+              },
+            ),
+          ],
         ),
       ),
     );
