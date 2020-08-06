@@ -18,6 +18,7 @@ class _SearchScreenState extends State<SearchScreen> {
   @override
   void didChangeDependencies() {
     // TODO: implement didChangeDependencies
+    super.didChangeDependencies();
     Future.delayed(Duration.zero).then((_) {
       Provider.of<Books>(context, listen: false).clearList();
       setState(() {

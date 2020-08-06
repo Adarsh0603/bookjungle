@@ -1,9 +1,13 @@
+import 'dart:async';
+
+import 'package:books_app/constants.dart';
 import 'package:books_app/providers/nyt.dart';
 import 'package:books_app/widgets/categoriesWidgets/categories_section.dart';
 import 'package:books_app/widgets/navbar.dart';
 import 'package:books_app/widgets/showcaseWidgets/showcase.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:connectivity/connectivity.dart';
 
 class HomeScreen extends StatefulWidget {
   static const routeName = '/home';
@@ -21,10 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Future<void> getBooksData() async {
-//    if (!Provider.of<NYT>(context, listen: false).isLoaded) {
     await Provider.of<NYT>(context, listen: false).getCategoryList();
-//      Provider.of<NYT>(context, listen: false).setLoading(true);
-//    }
   }
 
   @override
@@ -34,6 +35,9 @@ class _HomeScreenState extends State<HomeScreen> {
       floatingActionButton: NavBar(HomeScreen.routeName),
       body: SafeArea(
         child: RefreshIndicator(
+          color: kPrimaryColor,
+          backgroundColor: Colors.white,
+          displacement: 80,
           onRefresh: () async {
             await getBooksData();
           },
