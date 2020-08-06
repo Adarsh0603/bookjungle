@@ -1,5 +1,5 @@
 import 'package:books_app/constants.dart';
-import 'package:books_app/screens/nyt_screen.dart';
+import 'package:books_app/screens/bestsellers_screen.dart';
 import 'package:flutter/material.dart';
 
 class ShowcaseHeader extends StatelessWidget {
@@ -21,7 +21,8 @@ class ShowcaseHeader extends StatelessWidget {
                 ),
                 GestureDetector(
                   onTap: () {
-                    Navigator.of(context).pushNamed(NYTScreen.routeName);
+                    Navigator.of(context)
+                        .pushNamed(BestSellersScreen.routeName);
                   },
                   child: SizedBox(
                     width: 70.0,

@@ -61,7 +61,10 @@ class _BestSellerCategoryCardState extends State<BestSellerCategoryCard> {
       },
       child: Padding(
         padding: EdgeInsets.only(
-            left: 8.0, top: open ? 12 : 0, right: 8.0, bottom: open ? 12 : 0),
+            left: open ? 8 : 0,
+            top: open ? 8 : 0,
+            right: open ? 8 : 0,
+            bottom: open ? 8 : 0),
         child: Material(
           elevation: elevation,
           child: Container(

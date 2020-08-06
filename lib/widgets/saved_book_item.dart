@@ -20,7 +20,6 @@ class SavedBookItem extends StatelessWidget {
         showModalBottomSheet(
             elevation: 18.0,
             isScrollControlled: true,
-//            barrierColor: Colors.white,
             context: context,
             builder: (context) {
               return FutureBuilder(

@@ -52,25 +52,25 @@ class _NavBarState extends State<NavBar> {
               ],
             ),
           ),
-          Container(
-            width: 48,
-//            decoration: BoxDecoration(
-//              color: kPrimaryColor,
-//              borderRadius:
-//                  BorderRadius.all(Radius.circular(kRoundedCornerRadius)),
-//            ),
-            child: FloatingActionButton(
-              backgroundColor: Colors.white,
-              child: Icon(
-                openNav ? Icons.chevron_right : Icons.chevron_left,
-                color: kPrimaryColor,
+          Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: <Widget>[
+              Container(
+                width: 48,
+                child: FloatingActionButton(
+                  backgroundColor: Colors.white,
+                  child: Icon(
+                    openNav ? Icons.chevron_right : Icons.chevron_left,
+                    color: kPrimaryColor,
+                  ),
+                  onPressed: () {
+                    setState(() {
+                      openNav = !openNav;
+                    });
+                  },
+                ),
               ),
-              onPressed: () {
-                setState(() {
-                  openNav = !openNav;
-                });
-              },
-            ),
+            ],
           )
         ],
       ),

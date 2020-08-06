@@ -7,7 +7,7 @@ const kPrimaryColor = Color(0xff0DB067);
 //-----SearchScreen-------//
 //HEADER
 const kSearchScreenHeaderStyle =
-    TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold);
+    TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold, color: Colors.white);
 
 //SEARCH BAR
 const kSearchBarRadius = 15.0;

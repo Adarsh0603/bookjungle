@@ -4,7 +4,7 @@ import 'package:books_app/providers/categories.dart';
 import 'package:books_app/providers/nyt.dart';
 import 'package:books_app/screens/bookshelf_screen.dart';
 import 'package:books_app/screens/home_screen.dart';
-import 'package:books_app/screens/nyt_screen.dart';
+import 'package:books_app/screens/bestsellers_screen.dart';
 import 'package:books_app/screens/search_screen.dart';
 import 'package:books_app/screens/specific_search_screen.dart';
 import 'package:flutter/material.dart';
@@ -50,7 +50,7 @@ class BooksApp extends StatelessWidget {
           SearchScreen.routeName: (context) => SearchScreen(),
           BookShelfScreen.routeName: (context) => BookShelfScreen(),
           SpecificSearchScreen.routeName: (context) => SpecificSearchScreen(),
-          NYTScreen.routeName: (context) => NYTScreen(),
+          BestSellersScreen.routeName: (context) => BestSellersScreen(),
           HomeScreen.routeName: (context) => HomeScreen(),
         },
       ),

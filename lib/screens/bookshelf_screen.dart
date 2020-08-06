@@ -19,60 +19,67 @@ class _BookShelfScreenState extends State<BookShelfScreen> {
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       floatingActionButton: NavBar(BookShelfScreen.routeName),
-      body: SafeArea(
-        child: SizedBox(
-          width: double.infinity,
-          height: MediaQuery.of(context).size.height,
-          child: RefreshIndicator(
-            onRefresh: () async {
-              setState(() {});
-              return Future.delayed(Duration.zero);
-            },
-            child: Consumer<Bookshelf>(
-              builder: (BuildContext context, bookshelf, Widget child) {
-                return Container(
-                  padding: EdgeInsets.only(top: 16.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: Text(
-                          'Bookshelf',
-                          textAlign: TextAlign.start,
-                          style: TextStyle(
-                              fontSize: 26, fontWeight: FontWeight.bold),
-                        ),
+      body: RefreshIndicator(
+        onRefresh: () async {
+          setState(() {});
+          return Future.delayed(Duration.zero);
+        },
+        child: Consumer<Bookshelf>(
+          builder: (BuildContext context, bookshelf, Widget child) {
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Container(
+                  height: 100,
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage("images/bg.png"),
+                          fit: BoxFit.cover)),
+                  child: Container(
+                    color: Colors.black38,
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                          top: 16.0, bottom: 0, left: 16.0),
+                      child: Row(
+                        children: <Widget>[
+                          Text(
+                            'Bookshelf',
+                            textAlign: TextAlign.start,
+                            style: TextStyle(
+                                fontSize: 26,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white),
+                          ),
+                        ],
                       ),
-                      Divider(
-                        height: 0,
-                      ),
-                      Expanded(
-                        child: FutureBuilder(
-                          future: Provider.of<Bookshelf>(context, listen: false)
-                              .fetchAndSetBooks(),
-                          builder: (BuildContext context,
-                              AsyncSnapshot<dynamic> snapshot) {
-                            return snapshot.connectionState ==
-                                    ConnectionState.waiting
-                                ? Center(child: CircularProgressIndicator())
-                                : bookshelf.savedBooks.length <= 0
-                                    ? EmptyBookshelfWidget()
-                                    : ListView.builder(
-                                        itemCount: bookshelf.savedBooks.length,
-                                        itemBuilder: (ctx, i) => SavedBookItem(
-                                            bookshelf.savedBooks.reversed
-                                                .toList()[i]),
-                                      );
-                          },
-                        ),
-                      ),
-                    ],
+                    ),
                   ),
-                );
-              },
-            ),
-          ),
+                ),
+//                Divider(
+//                  height: 0,
+//                ),
+                Expanded(
+                  child: FutureBuilder(
+                    future: Provider.of<Bookshelf>(context, listen: false)
+                        .fetchAndSetBooks(),
+                    builder: (BuildContext context,
+                        AsyncSnapshot<dynamic> snapshot) {
+                      return snapshot.connectionState == ConnectionState.waiting
+                          ? Center(child: CircularProgressIndicator())
+                          : bookshelf.savedBooks.length <= 0
+                              ? EmptyBookshelfWidget()
+                              : ListView.builder(
+                                  itemCount: bookshelf.savedBooks.length,
+                                  itemBuilder: (ctx, i) => SavedBookItem(
+                                      bookshelf.savedBooks.reversed
+                                          .toList()[i]),
+                                );
+                    },
+                  ),
+                ),
+              ],
+            );
+          },
         ),
       ),
     );

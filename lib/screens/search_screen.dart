@@ -32,30 +32,51 @@ class _SearchScreenState extends State<SearchScreen> {
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       floatingActionButton: NavBar(SearchScreen.routeName),
-      body: SafeArea(
-        child: Column(
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.only(
-                  top: 16.0, left: 16.0, right: 16.0, bottom: 2.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(
-                    'Discover',
-                    style: kSearchScreenHeaderStyle,
+      body: Column(
+        children: <Widget>[
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Container(
+                height: 100,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage("images/bg.png"), fit: BoxFit.cover)),
+                child: Container(
+                  color: Colors.black38,
+                  child: Padding(
+                    padding: const EdgeInsets.only(
+                        top: 32.0, left: 16.0, right: 16.0, bottom: 2.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          'Discover',
+                          style: kSearchScreenHeaderStyle,
+                        ),
+                        Container(
+                          width: MediaQuery.of(context).size.width * 0.7,
+                          child: Text(
+                            'Search books based on your needs with book title or author name',
+                            style:
+                                TextStyle(fontSize: 12.0, color: Colors.white),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                  SizedBox(height: 10),
-                  SearchBar(),
-                ],
+                ),
               ),
+              SizedBox(height: 10),
+              SearchBar(),
+            ],
+          ),
+          if (loadGrid)
+            BooksGrid(
+              routeName: SearchScreen.routeName,
             ),
-            if (loadGrid)
-              BooksGrid(
-                routeName: SearchScreen.routeName,
-              ),
-          ],
-        ),
+        ],
       ),
     );
   }
