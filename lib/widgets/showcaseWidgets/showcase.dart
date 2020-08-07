@@ -12,30 +12,37 @@ class Showcase extends StatefulWidget {
 class _ShowcaseState extends State<Showcase> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Card(
-        elevation: 18.0,
-        shadowColor: Colors.white,
-        margin: EdgeInsets.only(right: 0, left: 16),
-        child: Padding(
-          padding: const EdgeInsets.only(left: 12.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              ShowcaseHeader(),
-              NetworkSensitive(
-                child: ShowcaseList(),
-                offlineChild: Container(
-                  height: MediaQuery.of(context).size.height * 0.4,
-                  child: Center(
-                    child: Container(
-                      width: 200,
-                      child: Image.asset('images/nointerneticon.png'),
+    return GestureDetector(
+      onTap: () {
+        Scaffold.of(context).hideCurrentSnackBar();
+        Scaffold.of(context)
+            .showSnackBar(SnackBar(content: Text('Pull down to refresh.')));
+      },
+      child: Container(
+        child: Card(
+          elevation: 18.0,
+          shadowColor: Colors.white,
+          margin: EdgeInsets.only(right: 0, left: 16),
+          child: Padding(
+            padding: const EdgeInsets.only(left: 12.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                ShowcaseHeader(),
+                NetworkSensitive(
+                  child: ShowcaseList(),
+                  offlineChild: Container(
+                    height: MediaQuery.of(context).size.height * 0.4,
+                    child: Center(
+                      child: Container(
+                        width: 200,
+                        child: Image.asset('images/nointerneticon.png'),
+                      ),
                     ),
                   ),
-                ),
-              )
-            ],
+                )
+              ],
+            ),
           ),
         ),
       ),

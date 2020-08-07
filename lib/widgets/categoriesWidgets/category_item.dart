@@ -37,7 +37,7 @@ class _CategoryItemState extends State<CategoryItem> {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
-          left: 16, bottom: MediaQuery.of(context).size.height * 0.09 * 1.4),
+          left: 16, bottom: MediaQuery.of(context).size.height * 0.09 * 1.3),
       child: GestureDetector(
         onTap: navigateToSpecificSearchScreen,
         child: Card(

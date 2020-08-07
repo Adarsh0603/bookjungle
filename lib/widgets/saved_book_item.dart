@@ -20,15 +20,19 @@ class SavedBookItem extends StatefulWidget {
 }
 
 class _SavedBookItemState extends State<SavedBookItem> {
+  var searchedBook;
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    Future.delayed(Duration.zero).then((_) async {
+      searchedBook = await BookSearchUtils.fetchBookById(widget.savedBook.id);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onDoubleTap: () {
-        return;
-      },
       onTap: () async {
-        final searchedBook =
-            await BookSearchUtils.fetchBookById(widget.savedBook.id);
         showModalBottomSheet(
             elevation: 18.0,
             isScrollControlled: true,
