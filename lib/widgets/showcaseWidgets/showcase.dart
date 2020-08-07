@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:books_app/constants.dart';
 import 'package:books_app/services/connectivity_status.dart';
 import 'package:books_app/widgets/network_sensititve.dart';

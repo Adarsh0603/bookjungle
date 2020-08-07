@@ -1,6 +1,5 @@
 import 'package:books_app/constants.dart';
 import 'package:books_app/providers/books.dart';
-import 'package:books_app/services/connectivity_status.dart';
 import 'package:books_app/widgets/books_grid.dart';
 import 'package:books_app/widgets/navbar.dart';
 import 'package:books_app/widgets/network_sensititve.dart';
