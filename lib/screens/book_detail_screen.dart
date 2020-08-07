@@ -64,7 +64,6 @@ class BookDetailBottomSheet extends StatelessWidget {
               child: IconButton(
                 icon: Icon(Icons.share),
                 onPressed: () {
-                  print(book.infoLink);
                   Share.share(
                       'Check out this Book:\n ${book.title} \n ${book.infoLink}');
                 },

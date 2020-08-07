@@ -118,7 +118,6 @@ class Books extends ChangeNotifier {
     if (searchArgs.containsKey('category')) {
       url =
           'https://www.googleapis.com/books/v1/volumes?q=subject:${searchArgs['category']}&orderBy=newest&maxResults=$_singleLoadBookCount&startIndex=$startIndex';
-      print(url);
     }
     try {
       _reachedEnd = false;

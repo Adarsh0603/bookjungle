@@ -1,4 +1,3 @@
-import 'package:books_app/constants.dart';
 import 'package:books_app/widgets/network_sensititve.dart';
 import 'package:books_app/widgets/showcaseWidgets/showcase_header.dart';
 import 'package:books_app/widgets/showcaseWidgets/showcase_list_bestsellers.dart';

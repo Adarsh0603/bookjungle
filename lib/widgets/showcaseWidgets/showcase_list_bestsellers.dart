@@ -10,7 +10,6 @@ class ShowcaseList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<NYT>(
       builder: (BuildContext context, nyt, _) {
-        print(nyt.getSelectedCategory);
         return Column(
           children: <Widget>[
             Column(

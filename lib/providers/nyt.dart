@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:math';
 import 'package:books_app/models/book.dart';
 import 'package:books_app/models/category.dart';
+import 'package:books_app/providers/apiKeys.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
 
@@ -33,9 +34,8 @@ class NYT with ChangeNotifier {
   }
 
   Future<void> getCategoryList() async {
-    print('[getCategoryList()]');
     final url =
-        'https://api.nytimes.com/svc/books/v3/lists/names.json?api-key=0Db7fWAZAY6kK0Gz3NwcVQiMKf1MUnH9';
+        'https://api.nytimes.com/svc/books/v3/lists/names.json?api-key=$apiKey';
     try {
       http.Response response = await http.get(url);
       var jsonResponse = await jsonDecode(response.body);
@@ -62,7 +62,7 @@ class NYT with ChangeNotifier {
 
   Future<void> getBestsellers(String category) async {
     final url =
-        'https://api.nytimes.com/svc/books/v3/lists/current/$category.json?api-key=0Db7fWAZAY6kK0Gz3NwcVQiMKf1MUnH9';
+        'https://api.nytimes.com/svc/books/v3/lists/current/$category.json?api-key=$apiKey';
     http.Response response = await http.get(url);
     var jsonResponse = await jsonDecode(response.body)['results'];
     List bestsellersJson = jsonResponse['books'];

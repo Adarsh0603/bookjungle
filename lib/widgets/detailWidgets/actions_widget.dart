@@ -15,7 +15,6 @@ class ActionsWidget extends StatelessWidget {
           icon: Icons.chrome_reader_mode,
           label: 'PREVIEW',
           onPressed: () async {
-            print(book.previewLink);
             await Utils.launchURL(book.previewLink);
           },
         ),
@@ -27,7 +26,6 @@ class ActionsWidget extends StatelessWidget {
           onPressed: book.saleability != 'FOR_SALE'
               ? null
               : () async {
-                  print(book.buyLink);
                   await Utils.launchURL(book.buyLink);
                 },
           icon: Icons.shop,
@@ -39,7 +37,6 @@ class ActionsWidget extends StatelessWidget {
           onPressed: book.accessViewStatus != 'SAMPLE'
               ? null
               : () async {
-                  print(book.webReaderLink);
                   await Utils.launchURL(book.webReaderLink);
                 },
         ),

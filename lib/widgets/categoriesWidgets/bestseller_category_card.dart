@@ -27,7 +27,6 @@ class _BestSellerCategoryCardState extends State<BestSellerCategoryCard> {
     _bestsellersForSelectedCategory.clear();
     final url =
         'https://api.nytimes.com/svc/books/v3/lists/current/$category.json?api-key=0Db7fWAZAY6kK0Gz3NwcVQiMKf1MUnH9';
-    print(url);
     http.Response response = await http.get(url);
     var jsonResponse = await jsonDecode(response.body)['results'];
     List specificBestsellersJson = await jsonResponse['books'];

@@ -45,7 +45,7 @@ class ShowcaseHeader extends StatelessWidget {
           ),
           Text(
             'Weekly list of New York Times bestsellers \nfrom different categories..',
-            style: GoogleFonts.notoSans(
+            style: GoogleFonts.montserrat(
                 textStyle: TextStyle(
               fontSize: 12.0,
               color: kLightColor,
