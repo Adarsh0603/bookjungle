@@ -65,7 +65,7 @@ class _SearchScreenState extends State<SearchScreen> {
                             Container(
                               width: MediaQuery.of(context).size.width * 0.6,
                               child: Text(
-                                'Search books based on your needs with book title or author name',
+                                'Search books with book title or author name',
                                 style: GoogleFonts.notoSans(
                                     textStyle: TextStyle(
                                   color: Colors.white,

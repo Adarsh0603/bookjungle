@@ -24,19 +24,17 @@ class AppTitle extends StatelessWidget {
                   color: Colors.transparent,
                   child: Container(
                     child: Text(
-                      'bookjungle',
+                      'book\njungle',
                       textAlign: TextAlign.start,
-                      style: GoogleFonts.notoSerif(
+                      style: GoogleFonts.montserrat(
                           textStyle: TextStyle(
                               fontWeight: FontWeight.bold,
                               color: Colors.white,
+                              height: 0.9,
                               fontSize: 36)),
                     ),
                   ),
                 ),
-
-//            Container(
-//                width: 48, height: 48, child: Image.asset('images/jungle.png')),
               ],
             ),
           ),

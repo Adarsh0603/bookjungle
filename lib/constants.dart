@@ -1,13 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 //--------Colors-----//
 const kLightColor = Colors.teal;
 const kPrimaryColor = Color(0xff0DB067);
 //-----SearchScreen-------//
 //HEADER
-const kSearchScreenHeaderStyle =
-    TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold, color: Colors.white);
+final kSearchScreenHeaderStyle = GoogleFonts.montserrat(
+    textStyle: TextStyle(
+        fontSize: 24.0, fontWeight: FontWeight.bold, color: Colors.white));
 
 //SEARCH BAR
 const kSearchBarRadius = 15.0;
@@ -47,12 +49,6 @@ final kBarrierColor = Color(0xffE7F2F9);
 
 //-----------------------Showcase--------///
 const kBestsellerShowcaseRadius = 35.0;
-const kBestsellersShowcaseStyle = RoundedRectangleBorder(
-  borderRadius: BorderRadius.only(
-    topLeft: Radius.circular(kBestsellerShowcaseRadius),
-    bottomLeft: Radius.circular(kBestsellerShowcaseRadius),
-  ),
-);
 
 const kCategoryItemShape = RoundedRectangleBorder(
   borderRadius: BorderRadius.all(

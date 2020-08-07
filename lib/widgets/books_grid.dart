@@ -37,7 +37,6 @@ class BooksGrid extends StatelessWidget {
                         ? Expanded(child: Center(child: Text('No More Books')))
                         : Expanded(
                             child: Container(
-//                      height: MediaQuery.of(context).size.height * 0.6,
                               padding: EdgeInsets.symmetric(
                                   vertical: 0.0, horizontal: 16.0),
                               child: GridView.builder(
@@ -54,8 +53,6 @@ class BooksGrid extends StatelessWidget {
                                   }),
                             ),
                           ),
-
-                //this is a category branch comment
               ],
             );
           }),

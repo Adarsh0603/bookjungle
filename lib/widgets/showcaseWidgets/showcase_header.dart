@@ -21,7 +21,7 @@ class ShowcaseHeader extends StatelessWidget {
                     'Discover Bestsellers',
                     style: GoogleFonts.montserrat(
                         textStyle: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 22.0)),
+                            fontWeight: FontWeight.bold, fontSize: 20.0)),
                   ),
                 ),
                 GestureDetector(
@@ -31,14 +31,12 @@ class ShowcaseHeader extends StatelessWidget {
                   },
                   child: SizedBox(
                     width: 70.0,
-                    height: 35,
                     child: Center(
                       child: Text('see all',
-                          style: GoogleFonts.montserrat(
-                              textStyle: TextStyle(
+                          style: TextStyle(
                             fontSize: 14.0,
                             color: kLightColor,
-                          ))),
+                          )),
                     ),
                   ),
                 )
@@ -49,8 +47,8 @@ class ShowcaseHeader extends StatelessWidget {
             'Weekly list of New York Times bestsellers \nfrom different categories..',
             style: GoogleFonts.notoSans(
                 textStyle: TextStyle(
-              fontSize: 10.0,
-              letterSpacing: 0.2,
+              fontSize: 12.0,
+              color: kLightColor,
             )),
           ),
         ],

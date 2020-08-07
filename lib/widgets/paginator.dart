@@ -9,9 +9,7 @@ class Paginator extends StatelessWidget {
     return Consumer<Books>(
       builder: (BuildContext context, books, _) {
         return Card(
-          elevation: 01.0,
-          shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(0))),
+          elevation: 4.0,
           color: Colors.white,
           child: Padding(
             padding: const EdgeInsets.only(left: 16.0, right: 16.0),
@@ -37,7 +35,6 @@ class Paginator extends StatelessWidget {
                 IconButton(
                   color: kPrimaryColor,
                   icon: Icon(Icons.chevron_right),
-//          !books.reachedEnd &&
                   onPressed: (books.startIndex <= books.totalBookCount - 18)
                       ? () {
                           books.paginate(true);

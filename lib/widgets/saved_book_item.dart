@@ -7,6 +7,7 @@ import 'package:books_app/services/utils.dart';
 import 'package:books_app/widgets/network_sensititve.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class SavedBookItem extends StatefulWidget {
@@ -109,8 +110,9 @@ class _SavedBookItemState extends State<SavedBookItem> {
                           SizedBox(height: 4),
                           Text(
                             Utils.trimString(widget.savedBook.title, 50),
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 16),
+                            style: GoogleFonts.montserrat(
+                                textStyle: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 16)),
                           ),
                         ],
                       ),

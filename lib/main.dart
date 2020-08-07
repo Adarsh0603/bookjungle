@@ -18,7 +18,6 @@ void main() {
 }
 
 class BooksApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([
@@ -50,7 +49,6 @@ class BooksApp extends StatelessWidget {
                 backgroundColor: Colors.black.withOpacity(0))),
         debugShowCheckedModeBanner: false,
         title: 'BookHouse',
-//        home: HomeScreen(),
         initialRoute: HomeScreen.routeName,
         routes: {
           SearchScreen.routeName: (context) => SearchScreen(),

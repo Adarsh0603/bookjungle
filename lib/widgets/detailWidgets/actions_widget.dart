@@ -34,7 +34,7 @@ class ActionsWidget extends StatelessWidget {
         ),
         SizedBox(width: 5.0),
         ActionButton(
-          label: 'READ',
+          label: 'SAMPLE',
           icon: Icons.import_contacts,
           onPressed: book.accessViewStatus != 'SAMPLE'
               ? null

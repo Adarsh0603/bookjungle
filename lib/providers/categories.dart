@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 class Categories with ChangeNotifier {
   List<Category> categoriesList = [
     Category(
-        categoryTitle: 'Art & Literature',
+        categoryTitle: 'Art &\nLiterature',
         categoryLink: 'Art and Literature',
         iconLink: 'images/literature.png'),
     Category(

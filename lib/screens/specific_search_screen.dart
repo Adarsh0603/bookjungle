@@ -2,6 +2,7 @@ import 'package:books_app/providers/books.dart';
 import 'package:books_app/services/connectivity_status.dart';
 import 'package:books_app/widgets/books_grid.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class SpecificSearchScreen extends StatefulWidget {
@@ -81,10 +82,11 @@ class _SpecificSearchScreenState extends State<SpecificSearchScreen> {
                                   : searchArgs['categoryTitle'],
                               softWrap: true,
                               textAlign: TextAlign.end,
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold),
+                              style: GoogleFonts.montserrat(
+                                  textStyle: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold)),
                             ),
                           ],
                         ),

@@ -17,8 +17,6 @@ class ShowcaseBookItem extends StatelessWidget {
       onTap: () {
         showModalBottomSheet(
             elevation: 18.0,
-//            isScrollControlled: true,
-//            barrierColor: kBarrierColor,
             context: context,
             builder: (context) {
               return ShowcaseSearchBottomSheet(book);
@@ -60,7 +58,8 @@ class ShowcaseBookItem extends StatelessWidget {
               child: Text(
                 Utils.trimString(book.title, 15),
                 textAlign: TextAlign.center,
-                style: GoogleFonts.openSans(
+                maxLines: 2,
+                style: GoogleFonts.montserrat(
                     textStyle:
                         TextStyle(fontSize: 14.0, fontWeight: FontWeight.bold)),
               ),

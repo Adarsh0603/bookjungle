@@ -64,12 +64,12 @@ class _CategoryItemState extends State<CategoryItem> {
                     widget.category.categoryTitle,
                     textAlign: TextAlign.center,
                     softWrap: true,
-                    style: GoogleFonts.notoSans(
+                    style: GoogleFonts.montserrat(
                         textStyle: TextStyle(
                       fontSize: 14.0,
                       fontWeight: FontWeight.bold,
-                      color: kPrimaryColor,
-                      letterSpacing: 0.2,
+                      color: Colors.black,
+//                      letterSpacing: 0.2,
                     )),
                   ),
                 ),

@@ -61,11 +61,7 @@ class _BestSellerCategoryCardState extends State<BestSellerCategoryCard> {
         });
       },
       child: Padding(
-        padding: EdgeInsets.only(
-            left: open ? 8 : 0,
-            top: open ? 8 : 0,
-            right: open ? 8 : 0,
-            bottom: open ? 8 : 0),
+        padding: EdgeInsets.only(top: open ? 8 : 0, bottom: open ? 8 : 0),
         child: Material(
           elevation: elevation,
           child: Container(
@@ -111,8 +107,8 @@ class _BestSellerCategoryCardState extends State<BestSellerCategoryCard> {
                                 )
                               : Container(
                                   padding: EdgeInsets.symmetric(
-                                      vertical: openHeight * 0.1,
-                                      horizontal: 0.0),
+                                      vertical: openHeight * 0.15,
+                                      horizontal: 10.0),
                                   height: openHeight,
                                   color: kBestSellerCategoryCardColor,
                                   child: ListView.builder(

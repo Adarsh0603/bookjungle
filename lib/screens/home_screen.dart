@@ -54,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     //TODO:AppTitle Here
-                    SizedBox(height: 40.0),
+                    SizedBox(height: 20.0),
                     Showcase(),
                     Container(child: CategoriesSection()),
                   ],

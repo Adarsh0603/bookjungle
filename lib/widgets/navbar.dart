@@ -52,25 +52,20 @@ class _NavBarState extends State<NavBar> {
               ],
             ),
           ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: <Widget>[
-              Container(
-                width: 48,
-                child: FloatingActionButton(
-                  backgroundColor: Colors.white,
-                  child: Icon(
-                    openNav ? Icons.chevron_right : Icons.chevron_left,
-                    color: kPrimaryColor,
-                  ),
-                  onPressed: () {
-                    setState(() {
-                      openNav = !openNav;
-                    });
-                  },
-                ),
+          Container(
+            width: 42,
+            child: FloatingActionButton(
+              backgroundColor: Colors.white,
+              child: Icon(
+                openNav ? Icons.chevron_right : Icons.chevron_left,
+                color: kPrimaryColor,
               ),
-            ],
+              onPressed: () {
+                setState(() {
+                  openNav = !openNav;
+                });
+              },
+            ),
           )
         ],
       ),

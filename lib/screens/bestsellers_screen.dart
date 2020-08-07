@@ -3,6 +3,7 @@ import 'package:books_app/widgets/categoriesWidgets/bestseller_category_card.dar
 import 'package:books_app/widgets/network_sensititve.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class BestSellersScreen extends StatelessWidget {
@@ -57,10 +58,11 @@ class BestSellersScreen extends StatelessWidget {
                                 ),
                                 Text(
                                   'Bestsellers',
-                                  style: TextStyle(
-                                      fontSize: 26,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white),
+                                  style: GoogleFonts.montserrat(
+                                      textStyle: TextStyle(
+                                          fontSize: 26,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white)),
                                 ),
                               ],
                             ),

@@ -3,6 +3,7 @@ import 'package:books_app/widgets/navbar.dart';
 import 'package:books_app/widgets/saved_book_item.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'package:provider/provider.dart';
 
@@ -49,10 +50,11 @@ class _BookShelfScreenState extends State<BookShelfScreen> {
                               Text(
                                 'Bookshelf',
                                 textAlign: TextAlign.end,
-                                style: TextStyle(
-                                    fontSize: 36,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white),
+                                style: GoogleFonts.montserrat(
+                                    textStyle: TextStyle(
+                                        fontSize: 36,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white)),
                               ),
                             ],
                           ),

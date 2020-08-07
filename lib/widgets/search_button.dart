@@ -13,13 +13,10 @@ class SearchButton extends StatelessWidget {
             borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(40.0),
                 topLeft: Radius.circular(40.0))),
-        child: Hero(
-          tag: 'searchIcon',
-          child: Icon(
-            Icons.search,
-            size: 30.0,
-            color: Colors.white,
-          ),
+        child: Icon(
+          Icons.search,
+          size: 30.0,
+          color: Colors.white,
         ),
       ),
       onTap: () {

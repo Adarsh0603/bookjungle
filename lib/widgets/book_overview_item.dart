@@ -3,6 +3,7 @@ import 'package:books_app/providers/books.dart';
 import 'package:books_app/screens/book_detail_screen.dart';
 import 'package:books_app/services/utils.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:transparent_image/transparent_image.dart';
 
@@ -20,7 +21,6 @@ class BookOverviewItem extends StatelessWidget {
         showModalBottomSheet(
             elevation: 18.0,
             isScrollControlled: true,
-//            barrierColor: kBarrierColor,
             context: context,
             builder: (context) {
               return BookDetailBottomSheet(book);
@@ -55,7 +55,10 @@ class BookOverviewItem extends StatelessWidget {
             child: Text(
               book.title != null ? Utils.trimString(book.title, 18) : '---',
               textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 12.0, fontWeight: FontWeight.bold),
+              maxLines: 1,
+              style: GoogleFonts.montserrat(
+                  textStyle:
+                      TextStyle(fontSize: 12.0, fontWeight: FontWeight.bold)),
             ),
           ),
         ],

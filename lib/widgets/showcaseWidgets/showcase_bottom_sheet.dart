@@ -17,7 +17,6 @@ class ShowcaseSearchBottomSheet extends StatelessWidget {
       color: Color(0xff737373).withOpacity(0),
       child: Container(
         padding: EdgeInsets.all(30),
-//        height: MediaQuery.of(context).size.height * 0.80,
         width: double.infinity,
         margin: EdgeInsets.symmetric(horizontal: 10.0, vertical: 0),
         decoration: BoxDecoration(
@@ -65,8 +64,9 @@ class ShowcaseSearchBottomSheet extends StatelessWidget {
                         Text(
                           book.title,
                           softWrap: true,
-                          style: TextStyle(
-                              fontSize: 18.0, fontWeight: FontWeight.bold),
+                          style: GoogleFonts.montserrat(
+                              textStyle: TextStyle(
+                                  fontSize: 18.0, fontWeight: FontWeight.bold)),
                         ),
                       ],
                     ),
