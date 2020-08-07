@@ -1,5 +1,6 @@
 import 'package:books_app/providers/nyt.dart';
 import 'package:books_app/widgets/categoriesWidgets/bestseller_category_card.dart';
+import 'package:books_app/widgets/network_sensititve.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -71,10 +72,15 @@ class BestSellersScreen extends StatelessWidget {
                 ),
               ),
               Expanded(
-                  child: ListView.builder(
-                      itemCount: nyt.getAllCategories.length,
-                      itemBuilder: (ctx, i) =>
-                          BestSellerCategoryCard(nyt.getAllCategories[i]))),
+                  child: NetworkSensitive(
+                offlineChild: Center(
+                  child: Image.asset('images/nointernet.png'),
+                ),
+                child: ListView.builder(
+                    itemCount: nyt.getAllCategories.length,
+                    itemBuilder: (ctx, i) =>
+                        BestSellerCategoryCard(nyt.getAllCategories[i])),
+              )),
             ],
           ),
         ));

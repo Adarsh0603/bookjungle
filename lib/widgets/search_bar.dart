@@ -1,5 +1,6 @@
 import 'package:books_app/constants.dart';
 import 'package:books_app/providers/books.dart';
+import 'package:books_app/services/connectivity_status.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -63,6 +64,7 @@ class _SearchBarState extends State<SearchBar> {
                 },
                 onSubmitted: (value) async {
                   if (value == '') return;
+
                   search();
                 },
               ),

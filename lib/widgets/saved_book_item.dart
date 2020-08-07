@@ -4,31 +4,42 @@ import 'package:books_app/providers/bookshelf.dart';
 import 'package:books_app/screens/book_detail_screen.dart';
 import 'package:books_app/services/book_search_utils.dart';
 import 'package:books_app/services/utils.dart';
+import 'package:books_app/widgets/network_sensititve.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class SavedBookItem extends StatelessWidget {
+class SavedBookItem extends StatefulWidget {
   final SavedBook savedBook;
 
   SavedBookItem(this.savedBook);
+
+  @override
+  _SavedBookItemState createState() => _SavedBookItemState();
+}
+
+class _SavedBookItemState extends State<SavedBookItem> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      onDoubleTap: () {
+        return;
+      },
       onTap: () async {
-        final searchedBook = await BookSearchUtils.fetchBookById(savedBook.id);
+        final searchedBook =
+            await BookSearchUtils.fetchBookById(widget.savedBook.id);
         showModalBottomSheet(
             elevation: 18.0,
             isScrollControlled: true,
             context: context,
             builder: (context) {
               return FutureBuilder(
-                future: BookSearchUtils.fetchBookById(savedBook.id),
+                future: BookSearchUtils.fetchBookById(widget.savedBook.id),
                 builder:
                     (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
-                  return snapshot.connectionState == ConnectionState.done
-                      ? BookDetailBottomSheet(searchedBook)
-                      : LinearProgressIndicator();
+                  return snapshot.connectionState == ConnectionState.waiting
+                      ? LinearProgressIndicator()
+                      : BookDetailBottomSheet(searchedBook);
                 },
               );
             });
@@ -36,7 +47,7 @@ class SavedBookItem extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 0.0),
         child: Dismissible(
-          key: ValueKey(savedBook.id),
+          key: ValueKey(widget.savedBook.id),
           background: Container(
             alignment: AlignmentDirectional.centerEnd,
             color: Colors.grey[100],
@@ -51,7 +62,7 @@ class SavedBookItem extends StatelessWidget {
           direction: DismissDirection.endToStart,
           onDismissed: (direction) async {
             await Provider.of<Bookshelf>(context, listen: false)
-                .removeSavedBook(savedBook.id);
+                .removeSavedBook(widget.savedBook.id);
           },
           child: Container(
             decoration: BoxDecoration(
@@ -71,9 +82,17 @@ class SavedBookItem extends StatelessWidget {
                           child: ClipRRect(
                             borderRadius:
                                 BorderRadius.all(Radius.circular(4.0)),
-                            child: Image.network(
-                              savedBook.imageUrl,
-                              fit: BoxFit.cover,
+                            child: NetworkSensitive(
+                              offlineChild: Center(
+                                  child: Text(
+                                'NO INTERNET CONNECTION',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(fontSize: 8.0),
+                              )),
+                              child: Image.network(
+                                widget.savedBook.imageUrl,
+                                fit: BoxFit.cover,
+                              ),
                             ),
                           ))),
                   SizedBox(width: 20),
@@ -84,12 +103,12 @@ class SavedBookItem extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           Text(
-                            savedBook.authors,
+                            widget.savedBook.authors,
                             style: TextStyle(color: kLightColor, fontSize: 10),
                           ),
                           SizedBox(height: 4),
                           Text(
-                            Utils.trimString(savedBook.title, 50),
+                            Utils.trimString(widget.savedBook.title, 50),
                             style: TextStyle(
                                 fontWeight: FontWeight.bold, fontSize: 16),
                           ),

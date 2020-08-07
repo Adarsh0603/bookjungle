@@ -7,9 +7,10 @@ import 'package:books_app/screens/home_screen.dart';
 import 'package:books_app/screens/bestsellers_screen.dart';
 import 'package:books_app/screens/search_screen.dart';
 import 'package:books_app/screens/specific_search_screen.dart';
+import 'package:books_app/services/connectivity_service.dart';
+import 'package:books_app/services/connectivity_status.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -38,6 +39,10 @@ class BooksApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (BuildContext context) => Categories(),
         ),
+        StreamProvider<ConnectivityStatus>(
+          create: (BuildContext context) =>
+              ConnectivityService().connectionStatusController.stream,
+        )
       ],
       child: MaterialApp(
         theme: ThemeData(

@@ -1,11 +1,26 @@
-import 'package:books_app/constants.dart';
 import 'package:books_app/providers/books.dart';
+import 'package:books_app/services/connectivity_status.dart';
 import 'package:books_app/widgets/books_grid.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class SpecificSearchScreen extends StatelessWidget {
+class SpecificSearchScreen extends StatefulWidget {
   static const routeName = '/specific-search-screen';
+
+  @override
+  _SpecificSearchScreenState createState() => _SpecificSearchScreenState();
+}
+
+class _SpecificSearchScreenState extends State<SpecificSearchScreen> {
+  @override
+  void didChangeDependencies() {
+    // TODO: implement didChangeDependencies
+    super.didChangeDependencies();
+    var connectivity = Provider.of<ConnectivityStatus>(context);
+    if (connectivity != ConnectivityStatus.Offline) {
+      setState(() {});
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -16,6 +31,7 @@ class SpecificSearchScreen extends StatelessWidget {
     Provider.of<Books>(context, listen: false)
         .toggleTotalItemsCalculation(true);
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[

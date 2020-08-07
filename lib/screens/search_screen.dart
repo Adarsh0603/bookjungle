@@ -1,7 +1,9 @@
 import 'package:books_app/constants.dart';
 import 'package:books_app/providers/books.dart';
+import 'package:books_app/services/connectivity_status.dart';
 import 'package:books_app/widgets/books_grid.dart';
 import 'package:books_app/widgets/navbar.dart';
+import 'package:books_app/widgets/network_sensititve.dart';
 import 'package:books_app/widgets/search_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -31,6 +33,7 @@ class _SearchScreenState extends State<SearchScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       floatingActionButton: NavBar(SearchScreen.routeName),
       body: Column(
@@ -80,7 +83,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 ),
               ),
               SizedBox(height: 10),
-              SearchBar(),
+              NetworkSensitive(offlineChild: Container(), child: SearchBar()),
             ],
           ),
           if (loadGrid)

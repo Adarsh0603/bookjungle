@@ -1,11 +1,13 @@
 import 'dart:async';
 
 import 'package:books_app/constants.dart';
+import 'package:books_app/services/connectivity_status.dart';
+import 'package:books_app/widgets/network_sensititve.dart';
 import 'package:books_app/widgets/showcaseWidgets/showcase_header.dart';
 import 'package:books_app/widgets/showcaseWidgets/showcase_list_bestsellers.dart';
-import 'package:connectivity/connectivity.dart';
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class Showcase extends StatefulWidget {
   @override
@@ -13,36 +15,14 @@ class Showcase extends StatefulWidget {
 }
 
 class _ShowcaseState extends State<Showcase> {
-  var _connectionStatus = 'Unknown';
-  Connectivity connectivity;
-  StreamSubscription<ConnectivityResult> subscription;
-  bool isConnected = true;
   @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    connectivity = Connectivity();
-    subscription =
-        connectivity.onConnectivityChanged.listen((ConnectivityResult result) {
-      _connectionStatus = result.toString();
-      print(_connectionStatus);
-      if (result == ConnectivityResult.wifi ||
-          result == ConnectivityResult.mobile) {
-        setState(() {
-          isConnected = true;
-        });
-      } else {
-        setState(() {
-          isConnected = false;
-        });
-      }
-    });
-  }
-
-  @override
-  void dispose() {
-    subscription.cancel();
-    super.dispose();
+  void didChangeDependencies() {
+    // TODO: implement didChangeDependencies
+    super.didChangeDependencies();
+    var connectivity = Provider.of<ConnectivityStatus>(context);
+    if (connectivity != ConnectivityStatus.Offline) {
+      setState(() {});
+    }
   }
 
   @override
@@ -59,12 +39,18 @@ class _ShowcaseState extends State<Showcase> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               ShowcaseHeader(),
-              isConnected
-                  ? ShowcaseList()
-                  : Container(
-                      height: MediaQuery.of(context).size.height * 0.4,
-                      child: Center(child: Text('NO INTERNET CONNECTION')),
-                    )
+              NetworkSensitive(
+                child: ShowcaseList(),
+                offlineChild: Container(
+                  height: MediaQuery.of(context).size.height * 0.4,
+                  child: Center(
+                    child: Container(
+                      width: 200,
+                      child: Image.asset('images/nointerneticon.png'),
+                    ),
+                  ),
+                ),
+              )
             ],
           ),
         ),
