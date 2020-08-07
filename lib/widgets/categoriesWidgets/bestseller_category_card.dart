@@ -60,7 +60,11 @@ class _BestSellerCategoryCardState extends State<BestSellerCategoryCard> {
         });
       },
       child: Padding(
-        padding: EdgeInsets.only(top: open ? 8 : 0, bottom: open ? 8 : 0),
+        padding: EdgeInsets.only(
+            top: open ? 8 : 0,
+            bottom: open ? 8 : 0,
+            left: open ? 8.0 : 16.0,
+            right: open ? 8.0 : 16.0),
         child: Material(
           elevation: elevation,
           child: Container(
@@ -78,7 +82,7 @@ class _BestSellerCategoryCardState extends State<BestSellerCategoryCard> {
                     style: GoogleFonts.montserrat(
                         textStyle: TextStyle(
                             fontWeight: FontWeight.bold,
-                            fontSize: open ? 28 : 16)),
+                            fontSize: open ? 24 : 16)),
                   ),
                 ),
                 SizedBox(height: 5),

@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:books_app/constants.dart';
 import 'package:books_app/providers/nyt.dart';
-import 'package:books_app/services/connectivity_status.dart';
 import 'package:books_app/widgets/app_title.dart';
 import 'package:books_app/widgets/categoriesWidgets/categories_section.dart';
 import 'package:books_app/widgets/navbar.dart';
@@ -22,11 +21,11 @@ class _HomeScreenState extends State<HomeScreen> {
   void didChangeDependencies() {
     // TODO: implement didChangeDependencies
     super.didChangeDependencies();
-    var connectivity = Provider.of<ConnectivityStatus>(context);
-    if (connectivity != ConnectivityStatus.Offline) {
-      getBooksData();
-    }
-//    getBooksData();
+//    var connectivity = Provider.of<ConnectivityStatus>(context);
+//    if (connectivity != ConnectivityStatus.Offline) {
+//      getBooksData();
+//    }
+    getBooksData();
   }
 
   Future<void> getBooksData() async {

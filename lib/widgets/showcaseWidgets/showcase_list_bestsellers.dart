@@ -15,12 +15,21 @@ class ShowcaseList extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.only(top: 16.0, left: 16.0),
-                  child: Text(
-                    nyt.getSelectedCategory,
-                    style: TextStyle(
-                        color: kLightColor, fontWeight: FontWeight.bold),
+                GestureDetector(
+                  onTap: () {
+                    Scaffold.of(context).hideCurrentSnackBar();
+                    Scaffold.of(context).showSnackBar(SnackBar(
+                      content: Text('Pull down to refresh.'),
+                      duration: Duration(seconds: 1),
+                    ));
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 16.0, left: 16.0),
+                    child: Text(
+                      nyt.getSelectedCategory,
+                      style: TextStyle(
+                          color: kLightColor, fontWeight: FontWeight.bold),
+                    ),
                   ),
                 ),
                 Divider(
@@ -35,13 +44,22 @@ class ShowcaseList extends StatelessWidget {
                           BorderRadius.only(bottomLeft: Radius.circular(20.0))),
                   child: nyt.getShowcaseBooks.length == 0
                       ? Center(
-                          child: Padding(
-                            padding: const EdgeInsets.only(bottom: 8.0),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.only(
-                                  bottomLeft: Radius.circular(20.0)),
-                              child: Image.asset(
-                                'images/bookLoader3.gif',
+                          child: GestureDetector(
+                            onTap: () {
+                              Scaffold.of(context).hideCurrentSnackBar();
+                              Scaffold.of(context).showSnackBar(SnackBar(
+                                content: Text('Pull down to refresh.'),
+                                duration: Duration(seconds: 1),
+                              ));
+                            },
+                            child: Padding(
+                              padding: const EdgeInsets.only(bottom: 8.0),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.only(
+                                    bottomLeft: Radius.circular(20.0)),
+                                child: Image.asset(
+                                  'images/bookLoader3.gif',
+                                ),
                               ),
                             ),
                           ),

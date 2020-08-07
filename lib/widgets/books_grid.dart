@@ -34,7 +34,12 @@ class BooksGrid extends StatelessWidget {
                     ? Expanded(
                         child: Center(child: CircularProgressIndicator()))
                     : books.reachedEnd
-                        ? Expanded(child: Center(child: Text('No More Books')))
+                        ? Expanded(
+                            child: Center(
+                                child: Text(
+                            'Nothing Here.',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          )))
                         : Expanded(
                             child: Container(
                               padding: EdgeInsets.symmetric(

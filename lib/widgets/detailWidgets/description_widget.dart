@@ -37,9 +37,9 @@ class DescriptionWidget extends StatelessWidget {
                   book.description,
                   style: GoogleFonts.notoSans(
                       textStyle: TextStyle(
-                          fontSize: 14.0,
-                          letterSpacing: 0.1,
-                          fontWeight: FontWeight.w600)),
+                    fontSize: 14.0,
+                    letterSpacing: 0.2,
+                  )),
                 )),
               ),
             ),
