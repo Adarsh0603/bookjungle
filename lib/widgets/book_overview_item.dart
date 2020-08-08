@@ -53,7 +53,7 @@ class BookOverviewItem extends StatelessWidget {
           Expanded(
             flex: 1,
             child: Text(
-              book.title != null ? Utils.trimString(book.title, 18) : '---',
+              book.title != null ? Utils.trimString(book.title, 16) : '---',
               textAlign: TextAlign.center,
               maxLines: 1,
               style: GoogleFonts.montserrat(

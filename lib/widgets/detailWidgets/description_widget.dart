@@ -2,11 +2,20 @@ import 'package:books_app/models/book.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:html/parser.dart';
 
 class DescriptionWidget extends StatelessWidget {
   final Book book;
 
   DescriptionWidget(this.book);
+
+  String _parseHtmlString(String htmlString) {
+    var document = parse(htmlString);
+
+    String parsedString = parse(document.body.text).documentElement.text;
+
+    return parsedString;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +43,7 @@ class DescriptionWidget extends StatelessWidget {
                 width: double.infinity,
                 child: SingleChildScrollView(
                     child: Text(
-                  book.description,
+                  _parseHtmlString(book.description),
                   style: GoogleFonts.notoSans(
                       textStyle: TextStyle(
                     fontSize: 14.0,

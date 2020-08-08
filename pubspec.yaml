@@ -38,6 +38,8 @@ dependencies:
   path: ^1.6.4
   connectivity: ^0.4.9
   google_fonts: ^1.1.0
+  html: ^0.14.0+3
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
