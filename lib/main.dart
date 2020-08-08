@@ -48,7 +48,7 @@ class BooksApp extends StatelessWidget {
             bottomSheetTheme: BottomSheetThemeData(
                 backgroundColor: Colors.black.withOpacity(0))),
         debugShowCheckedModeBanner: false,
-        title: 'BookHouse',
+        title: 'bookjungle',
         initialRoute: HomeScreen.routeName,
         routes: {
           SearchScreen.routeName: (context) => SearchScreen(),

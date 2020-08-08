@@ -62,11 +62,12 @@ class _BestSellerCategoryCardState extends State<BestSellerCategoryCard> {
       child: Padding(
         padding: EdgeInsets.only(
             top: open ? 8 : 0,
-            bottom: open ? 8 : 0,
+            bottom: open ? 18 : 0,
             left: open ? 8.0 : 16.0,
             right: open ? 8.0 : 16.0),
         child: Material(
           elevation: elevation,
+          color: Colors.white,
           child: Container(
             decoration: BoxDecoration(
                 border: Border(
@@ -82,10 +83,11 @@ class _BestSellerCategoryCardState extends State<BestSellerCategoryCard> {
                     style: GoogleFonts.montserrat(
                         textStyle: TextStyle(
                             fontWeight: FontWeight.bold,
-                            fontSize: open ? 24 : 16)),
+                            color: open ? kLightColor : Colors.black,
+                            fontSize: open ? 12 : 16)),
                   ),
                 ),
-                SizedBox(height: 5),
+                if (open) Divider(),
                 if (open)
                   FutureBuilder(
                     future:
@@ -110,7 +112,7 @@ class _BestSellerCategoryCardState extends State<BestSellerCategoryCard> {
                                 )
                               : Container(
                                   padding: EdgeInsets.symmetric(
-                                      vertical: openHeight * 0.15,
+                                      vertical: openHeight * 0.16,
                                       horizontal: 10.0),
                                   height: openHeight,
                                   color: kBestSellerCategoryCardColor,
@@ -128,6 +130,7 @@ class _BestSellerCategoryCardState extends State<BestSellerCategoryCard> {
                                 );
                     },
                   ),
+                if (open) Divider(),
                 if (open) SizedBox(height: 10),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -136,12 +139,14 @@ class _BestSellerCategoryCardState extends State<BestSellerCategoryCard> {
                     children: <Widget>[
                       Text(
                         'Published Between\n${widget.category.oldDate.substring(0, 4)} - ${widget.category.newDate.substring(0, 4)}',
-                        style: TextStyle(fontSize: 12, color: kLightColor),
+                        style: TextStyle(
+                            fontSize: open ? 8 : 12, color: kLightColor),
                       ),
                       Text(
                         'Updated\n${widget.category.updated}',
                         textAlign: TextAlign.end,
-                        style: TextStyle(fontSize: 12, color: kLightColor),
+                        style: TextStyle(
+                            fontSize: open ? 8 : 12, color: kLightColor),
                       )
                     ],
                   ),

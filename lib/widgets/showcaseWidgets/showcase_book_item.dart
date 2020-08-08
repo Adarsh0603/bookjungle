@@ -60,8 +60,10 @@ class ShowcaseBookItem extends StatelessWidget {
                 textAlign: TextAlign.center,
                 maxLines: 2,
                 style: GoogleFonts.montserrat(
-                    textStyle:
-                        TextStyle(fontSize: 14.0, fontWeight: FontWeight.bold)),
+                    textStyle: TextStyle(
+                        fontSize: 14.0,
+                        fontWeight: FontWeight.bold,
+                        height: 1)),
               ),
             )
           ],

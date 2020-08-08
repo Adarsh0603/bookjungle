@@ -57,4 +57,4 @@ const kCategoryItemShape = RoundedRectangleBorder(
 );
 
 //bestseller Categories
-final kBestSellerCategoryCardColor = Colors.grey[100];
+final kBestSellerCategoryCardColor = Colors.white;

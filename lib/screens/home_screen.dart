@@ -21,10 +21,6 @@ class _HomeScreenState extends State<HomeScreen> {
   void didChangeDependencies() {
     // TODO: implement didChangeDependencies
     super.didChangeDependencies();
-//    var connectivity = Provider.of<ConnectivityStatus>(context);
-//    if (connectivity != ConnectivityStatus.Offline) {
-//      getBooksData();
-//    }
     getBooksData();
   }
 
