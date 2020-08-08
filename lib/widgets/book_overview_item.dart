@@ -30,7 +30,7 @@ class BookOverviewItem extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Expanded(
-            flex: 5,
+            flex: 7,
             child: Padding(
               padding: const EdgeInsets.only(left: 8.0, right: 8.0),
               child: Card(
@@ -50,17 +50,18 @@ class BookOverviewItem extends StatelessWidget {
             ),
           ),
           SizedBox(height: 4.0),
-          Expanded(
-            flex: 1,
-            child: Text(
-              book.title != null ? Utils.trimString(book.title, 16) : '---',
-              textAlign: TextAlign.center,
-              maxLines: 1,
-              style: GoogleFonts.montserrat(
-                  textStyle:
-                      TextStyle(fontSize: 12.0, fontWeight: FontWeight.bold)),
+          if (book.title != null)
+            Expanded(
+              flex: 2,
+              child: Text(
+                Utils.trimString(book.title, 22),
+                textAlign: TextAlign.center,
+                maxLines: 2,
+                style: GoogleFonts.montserrat(
+                    textStyle:
+                        TextStyle(fontSize: 12.0, fontWeight: FontWeight.bold)),
+              ),
             ),
-          ),
         ],
       ),
     );

@@ -8,6 +8,18 @@ class ActionsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String availability;
+    IconData icon;
+    if (book.accessViewStatus == 'SAMPLE') {
+      availability = 'SAMPLE';
+      icon = Icons.description;
+    } else if (book.accessViewStatus == 'FULL_PUBLIC_DOMAIN') {
+      availability = 'READ';
+      icon = Icons.book;
+    } else {
+      availability = 'PAID';
+      icon = Icons.attach_money;
+    }
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
@@ -32,9 +44,10 @@ class ActionsWidget extends StatelessWidget {
         ),
         SizedBox(width: 5.0),
         ActionButton(
-          label: 'SAMPLE',
-          icon: Icons.import_contacts,
-          onPressed: book.accessViewStatus != 'SAMPLE'
+          label: availability,
+          icon: icon,
+          onPressed: book.accessViewStatus != 'FULL_PUBLIC_DOMAIN' &&
+                  book.accessViewStatus != 'SAMPLE'
               ? null
               : () async {
                   await Utils.launchURL(book.webReaderLink);

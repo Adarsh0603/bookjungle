@@ -21,6 +21,7 @@ class Books extends ChangeNotifier {
   bool _reachedEnd = false;
   bool _firstLoad = true;
   bool _byTitleNotAuthor;
+  bool _free;
   PaginatorCall calledBy;
   void setLoading(bool loadingState) {
     _isLoading = loadingState;
@@ -69,13 +70,15 @@ class Books extends ChangeNotifier {
   bool get specificScreenLoadingState => _specificScreenLoadingState;
 
   Future<void> getSearchedBookData(
-      String searchString, bool byTitleNotAuthor) async {
+      String searchString, bool byTitleNotAuthor, bool free) async {
     calledBy = PaginatorCall.byTitle;
     _byTitleNotAuthor = byTitleNotAuthor;
+    _free = free;
     _searchedBooksList.clear();
     _searchedString = searchString;
-    var url =
-        'https://www.googleapis.com/books/v1/volumes?q=${byTitleNotAuthor ? 'intitle' : 'inauthor'}:$searchString&maxResults=$_singleLoadBookCount&startIndex=$startIndex';
+    var url = !_free
+        ? 'https://www.googleapis.com/books/v1/volumes?q=${byTitleNotAuthor ? 'intitle' : 'inauthor'}:$searchString&maxResults=$_singleLoadBookCount&startIndex=$startIndex'
+        : 'https://www.googleapis.com/books/v1/volumes?q=${byTitleNotAuthor ? 'intitle' : 'inauthor'}:$searchString&filter=free-ebooks&maxResults=$_singleLoadBookCount&startIndex=$startIndex';
 
     try {
       _reachedEnd = false;
@@ -150,7 +153,7 @@ class Books extends ChangeNotifier {
             ? startIndex -= _singleLoadBookCount
             : startIndex = _singleLoadBookCount;
     calledBy == PaginatorCall.byTitle
-        ? getSearchedBookData(_searchedString, _byTitleNotAuthor)
+        ? getSearchedBookData(_searchedString, _byTitleNotAuthor, _free)
         : getSearchedBookByArgs(_searchedArgs);
   }
 

@@ -63,9 +63,9 @@ class _SearchScreenState extends State<SearchScreen> {
                               style: kSearchScreenHeaderStyle,
                             ),
                             Container(
-                              width: MediaQuery.of(context).size.width * 0.6,
+                              width: MediaQuery.of(context).size.width * 0.8,
                               child: Text(
-                                'Search books with book title or author name',
+                                'Search from more than 30 million books with over 10 million free ebooks...',
                                 style: GoogleFonts.notoSans(
                                     textStyle: TextStyle(
                                   color: Colors.white,
