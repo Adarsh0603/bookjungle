@@ -37,77 +37,83 @@ class _SearchBarState extends State<SearchBar> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              Expanded(
-                  flex: 3,
-                  child: Row(
-                    children: <Widget>[
-                      Expanded(
-                        child: GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              free = !free;
-                              search();
-                            });
-                          },
-                          child: Container(
-                            width: 24,
-                            height: 24,
-                            child: Center(
-                              child: Text(
-                                free ? 'FREE' : 'ALL',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                    fontSize: 10.0,
-                                    color: Colors.grey,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                            ),
-                          ),
+              Row(
+                children: <Widget>[
+                  GestureDetector(
+                    behavior: HitTestBehavior.translucent,
+                    onTap: () {
+                      setState(() {
+                        free = !free;
+                        search();
+                      });
+                    },
+                    child: Container(
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          free ? 'FREE' : 'ALL',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              fontSize: 10.0,
+                              color: Colors.grey,
+                              fontWeight: FontWeight.bold),
                         ),
                       ),
-                      Container(
-                          height: kSearchBarHeight, child: VerticalDivider()),
-                      Expanded(
-                        child: GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              byTitle = !byTitle;
-                              search();
-                            });
-                          },
-                          child: Container(
-                              child: Center(
-                            child: Text(
-                              byTitle ? 'TITLE' : 'AUTHOR',
-                              textAlign: TextAlign.end,
-                              style: TextStyle(
-                                  fontSize: 10.0,
-                                  color: Colors.grey,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          )),
-                        ),
+                    ),
+                  ),
+                  Container(
+                      height: kSearchBarHeight,
+                      child: VerticalDivider(
+                        width: 0,
+                      )),
+                  GestureDetector(
+                    behavior: HitTestBehavior.translucent,
+                    onTap: () {
+                      setState(() {
+                        byTitle = !byTitle;
+                        search();
+                      });
+                    },
+                    child: Container(
+                        child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        byTitle ? 'TITLE' : 'AUTHOR',
+                        textAlign: TextAlign.end,
+                        style: TextStyle(
+                            fontSize: 10.0,
+                            color: Colors.grey,
+                            fontWeight: FontWeight.bold),
                       ),
-                    ],
+                    )),
+                  ),
+                ],
+              ),
+              Container(
+                  height: kSearchBarHeight,
+                  child: VerticalDivider(
+                    width: 0,
                   )),
-              Container(height: kSearchBarHeight, child: VerticalDivider()),
               Expanded(
                 flex: 6,
-                child: TextField(
-                  autofocus: true,
-                  cursorColor: kSearchBarHintColor,
-                  decoration: kSearchBarDecoration.copyWith(
-                      hintText:
-                          byTitle ? 'Search by title' : 'Search by author'),
-                  textInputAction: TextInputAction.search,
-                  onChanged: (value) {
-                    searchString = value;
-                  },
-                  onSubmitted: (value) async {
-                    if (value == '') return;
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 8.0),
+                  child: TextField(
+                    autofocus: true,
+                    cursorColor: kSearchBarHintColor,
+                    decoration: kSearchBarDecoration.copyWith(
+                        hintText:
+                            byTitle ? 'Search by title' : 'Search by author'),
+                    textInputAction: TextInputAction.search,
+                    onChanged: (value) {
+                      searchString = value;
+                    },
+                    onSubmitted: (value) async {
+                      if (value == '') return;
 
-                    search();
-                  },
+                      search();
+                    },
+                  ),
                 ),
               ),
               Expanded(

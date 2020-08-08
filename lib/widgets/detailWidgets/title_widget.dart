@@ -13,12 +13,14 @@ class TitleWidget extends StatelessWidget {
     return Center(
       child: Column(
         children: <Widget>[
-          Text(
-            Utils.trimString(book.title, 40),
-            textAlign: TextAlign.center,
-            style: GoogleFonts.montserrat(
-                textStyle:
-                    TextStyle(fontWeight: FontWeight.bold, fontSize: 22.0)),
+          FittedBox(
+            child: Text(
+              Utils.trimString(book.title, 50),
+              textAlign: TextAlign.center,
+              style: GoogleFonts.montserrat(
+                  textStyle:
+                      TextStyle(fontWeight: FontWeight.bold, fontSize: 22.0)),
+            ),
           ),
           if (book.subtitle != null)
             Text(
